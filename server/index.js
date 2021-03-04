@@ -1,0 +1,17 @@
+const express = require('express');
+const router = require('./router');
+const cors = require('cors')
+const morgan = require('morgan');
+  
+const app = express();
+const PORT = 3000;
+  
+app.use(morgan('tiny'))
+app.use(cors())
+
+app.use(express.json());
+app.use(router);
+  
+app.listen(PORT, () => {
+console.log(`Server started on http://localhost:${PORT} 🚀`);
+});
