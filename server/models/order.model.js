@@ -1,27 +1,25 @@
-module.exports = (sequelize, DataTypes) => sequelize.define('Order', {
-  client_name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  client_address: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  client_phone: {
-    type: Sequelize.INTEGER
-  },
-  comments: {
-    type: Sequelize.STRING
-  },
-  orderTot_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: Total_orders,
-      key: 'id'
+module.exports = (sequelize, DataTypes) => {
+
+  const  Order = sequelize.define('Order', {
+    clientName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    clientAddress: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    clientPhone: {
+      type: DataTypes.INTEGER(15)
+    },
+    comments: {
+      type: DataTypes.STRING(500)
     }
-  },
-  total_price: {
-    type: Sequelize.DECIMAL(10, 2),
-  }
-});
+  });
+
+  Order.associate = model => {
+    Order.belongsToMany(model.Dish, {through: 'DishesPerOrder'});
+  };
+
+  return Order;
+}

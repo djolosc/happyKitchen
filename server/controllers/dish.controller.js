@@ -1,14 +1,14 @@
 // const db = require('../models/index');
-const {Menu} = require('../models');
+const {Dish} = require('../models');
 
 
-//get all menus 
+//get all dishes 
 exports.getAll = async (req, res) => {
   try {
-    const menus = await Menu.findAll();
+    const dishes = await Dish.findAll();
 
     res.status(200)
-    res.send(menus)
+    res.send(dishes)
   } catch (e) {
     console.log(e)  //eslint-disable-line no-console
     res.status(500);
@@ -16,25 +16,25 @@ exports.getAll = async (req, res) => {
 
 };
 
-// create a menu 
-exports.createMenu= async (req, res) => {
+// create a dish 
+exports.addDish = async (req, res) => {
   try {
-    const newMenu = await Menu.create(req.body);
-    // newMenu.addDish(id) to update the joined table
+    const newDish = await Dish.create(req.body);
+    // newDish.addMenu(id) to update the joined table
     res.status(201);
-    res.send(newMenu)
+    res.send(newDish)
   } catch (e) {
     console.log(e);  //eslint-disable-line no-console
     res.status(500).send(e);
   }
 }
 
-// delete a menu 
-exports.deleteMenu = async (req, res) => {
+// delete a dish 
+exports.deleteDish = async (req, res) => {
   const id = parseInt(req.body.id);
   // if (Number.isNaN(id) || !id) return res.status(400).end();
 
-  Menu.destroy({
+  Dish.destroy({
     where: { id: id}
   }).then(() => {
     res.status(204).end();
@@ -47,4 +47,6 @@ exports.deleteMenu = async (req, res) => {
 }
 
 
-//TODO: modify a menu (if needed later)
+//TODO: modify a dish (if needed later)
+
+
