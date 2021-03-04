@@ -1,12 +1,11 @@
 // const db = require('../models/index');
-const {Dish} = require('../models');
+const { Dish } = require('../models');
 
 
 //get all dishes 
 exports.getAll = async (req, res) => {
   try {
     const dishes = await Dish.findAll();
-
     res.status(200)
     res.send(dishes)
   } catch (e) {
@@ -20,7 +19,6 @@ exports.getAll = async (req, res) => {
 exports.addDish = async (req, res) => {
   try {
     const newDish = await Dish.create(req.body);
-    // newDish.addMenu(id) to update the joined table
     res.status(201);
     res.send(newDish)
   } catch (e) {
@@ -31,19 +29,18 @@ exports.addDish = async (req, res) => {
 
 // delete a dish 
 exports.deleteDish = async (req, res) => {
-  const id = parseInt(req.body.id);
-  // if (Number.isNaN(id) || !id) return res.status(400).end();
+  const title = req.body.title;
 
   Dish.destroy({
-    where: { id: id}
+    where: { title: title }
   }).then(() => {
     res.status(204).end();
   })
-  .catch(err => {
-    res.status(500).send({
-      message: "Error deletingOrder with id=" + id
+    .catch(err => {
+      res.status(500).send({
+        message: "Error deletingOrder with id=" + id
+      });
     });
-  });
 }
 
 
