@@ -8,6 +8,7 @@ import OrderList from './components/OrderList/orderList';
 // import Dashboard from './Containers/Dashboard/dashboard';
 import Navbar from './components/Navbar/Navbar';
 import DishForm from './components/DishForm/dishForm';
+import MenuForm from './components/MenuForm/menuForm';
 
 
 function App () {
@@ -24,6 +25,7 @@ function App () {
   const addNewDish = (body) => {
     ApiService.addDish(body)
       .then((dish) => setDishes(prevDishes => [...prevDishes, dish]))
+
   }
 
   //MENUS
@@ -56,6 +58,9 @@ function App () {
             <Route exact path="/dish">
               <DishList dishes={dishes} />
             </Route>
+            {/* <Route exact path="/create_menu">
+              <MenuForm dishes={dishes} />
+            </Route> */}
             <Route exact path="/order">
               <OrderList orders={orders} />
             </Route>
