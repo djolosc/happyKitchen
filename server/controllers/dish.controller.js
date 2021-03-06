@@ -12,7 +12,6 @@ exports.getAll = async (req, res) => {
     console.log(e)  //eslint-disable-line no-console
     res.status(500);
   }
-
 };
 
 // create a dish 

@@ -1,3 +1,5 @@
+import './dishItem.css'
+
 function DishItem ({ dish }) {
   return (
     <div className='dishItem'>

@@ -1,6 +1,8 @@
 import './Navbar.css';
 import { Link } from "react-router-dom";
 
+
+//TODO UPDATE CLASSNAME
 function Navbar () {
   return (
     <nav className="navbar">
@@ -13,6 +15,8 @@ function Navbar () {
           <li className="btn-create-menu"><Link to="/create_menu">Create a menu</Link></li>
           <li className="btn-see-menus"><Link to="/menu">See menus</Link></li>
           <li className="btn-order"><Link to="/order">See orders</Link></li>
+          <li className="btn-order"><Link to="/create_order">Create orders</Link></li>
+          <li className="btn-order"><Link to="/menu_item">Menu Item</Link></li>
         </ul>
       </div>
     </nav>

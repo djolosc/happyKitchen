@@ -9,12 +9,16 @@ import OrderList from './components/OrderList/orderList';
 import Navbar from './components/Navbar/Navbar';
 import DishForm from './components/DishForm/dishForm';
 import MenuForm from './components/MenuForm/menuForm';
+import OrderForm from './components/OrderForm/orderForm';
+import MenuItem from './components/MenuItem/menuItem';
 
 
 function App () {
   const [dishes, setDishes] = useState([]);
   const [menus, setMenus] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [selectedDishes, setSelectedDishes] = useState([]);
+
 
   //DISHES
   useEffect(() => {
@@ -25,7 +29,6 @@ function App () {
   const addNewDish = (body) => {
     ApiService.addDish(body)
       .then((dish) => setDishes(prevDishes => [...prevDishes, dish]))
-
   }
 
   //MENUS
@@ -36,9 +39,9 @@ function App () {
 
   const createNewMenu = (body) => {
     ApiService.createMenu(body)
-      .then((menu) => setDishes(prevMenus => [...prevMenus, menu]))
-
+      .then((menu) => setMenus(prevMenus => [...prevMenus, menu]))
   }
+
 
 
   //ORDERS
@@ -47,7 +50,10 @@ function App () {
       .then((data) => setOrders(data))
   }, []);
 
-
+  const createNewOrder = (body) => {
+    ApiService.createOrder(body)
+      .then((order) => setOrders(prevOrders => [...prevOrders, order]))
+  }
 
   console.log('dishes -> ', dishes);
   return (
@@ -68,11 +74,22 @@ function App () {
             <Route exact path="/create_menu">
               <MenuForm
                 dishes={dishes}
-              // createNewMenu={createNewMenu}
+                createNewMenu={createNewMenu}
+                selectedDishes={selectedDishes}
+                setSelectedDishes={setSelectedDishes}
               />
             </Route>
             <Route exact path="/order">
               <OrderList orders={orders} />
+            </Route>
+            <Route exact path="/create_order">
+              <OrderForm createNewOrder={createNewOrder} />
+            </Route>
+            <Route exact path="/menu_item/:id">
+              <MenuItem
+                menus={menus}
+              // getOneMenu={getOneMenu}
+              />
             </Route>
           </Switch>
         </div>

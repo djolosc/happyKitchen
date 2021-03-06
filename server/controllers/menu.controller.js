@@ -15,8 +15,27 @@ exports.getAll = async (req, res) => {
   }
 };
 
+//get menu by Id
+exports.getOneMenu = async (req, res) => {
+  try {
+    const { id } = req.params
+    const menu = await Menu.findOne({
+      where:
+        { id: id }
+    });
+    // const menu = await Menu.findByPk(id);
+    console.log('menu -> ', menu);
+    res.status(200)
+    res.send(menu)
+  } catch (e) {
+    console.log(e)  //eslint-disable-line no-console
+    res.status(500);
+  }
+}
+
 // create a menu 
 exports.createMenu = async (req, res) => {
+  console.log('req.body -> ', req.body);
   try {
     const newMenu = await Menu.create({ title: req.body.title });
     newMenu.addDish(req.body.DishId);

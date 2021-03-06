@@ -19,6 +19,10 @@ const getMenus = () => {
   return fetchRequest('/menu');
 }
 
+const getMenu = () => {
+  return fetchRequest('/menu/:id');
+}
+
 const createMenu = (body) => {
   const httpOptions = {
     method: 'POST',
@@ -33,6 +37,16 @@ const getOrders = () => {
   return fetchRequest('/order');
 }
 
+const createOrder = (body) => {
+  const httpOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  };
+  return fetchRequest('/order', httpOptions);
+}
+
+
 function fetchRequest (path, options) {
   return fetch(BASE_URL + path, options)
     .then((res) => res.status >= 400 ? Promise.reject() : res)
@@ -45,5 +59,7 @@ export default {
   getMenus,
   getOrders,
   addDish,
-  createMenu
+  createMenu,
+  createOrder,
+  getMenu
 };

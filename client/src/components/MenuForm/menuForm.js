@@ -1,36 +1,67 @@
 import './menuForm.css';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
+import MenuItem from '../MenuItem/menuItem';
 
-function MenuForm ({ dishes, createNewMenu }) {
-  // eslint-disable-next-line 
-  const [selectedDishes, setSelectedDishes] = useState([]);
-  // eslint-disable-next-line 
-  const { register, handleSubmit, errors, reset } = useForm();
-  // eslint-disable-next-line 
+function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }) {
+
+  console.log('selectedDishes -> ', selectedDishes);
+  const { register, handleSubmit, reset } = useForm();
+
+  //TODO MENU ITEM Fx
+
   const onSubmit = data => {
-    console.log(data)
-    reset()
+    const parsedData = {
+      title: data.title,
+      DishId: selectedDishes.map(id => parseInt(id))
+    }
+    createNewMenu(parsedData);
+    reset();
+
   }
 
+  const handleCheckBox = (event) => {
+    event.preventDefault()
+    if (event.target.checked) {
+      setSelectedDishes([...selectedDishes, event.target.value])
+    } else {
+      setSelectedDishes(selectedDishes.filter(dish => dish !== event.target.value))
+    }
+  }
+  console.log({ dishes })
   return (
-    <form onSubmit={handleSubmit(createNewMenu)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="menu-title">
-        <p>Menu</p>
+        <label>Menu name</label>
+        <input
+          className="menuTitle"
+          type="text"
+          placeholder="Menu"
+          name="title"
+          ref={register({ required: "Title required" })}
+        />
       </div>
       <div>
+
         {dishes.map((dish) =>
-          <label key={dish.id}>
+          <div key={dish.id}>
+            <span >
+              {dish.title}</span>
             <input type="checkbox"
-              value={dish.title}
-              name="dishesMenu"
+              onChange={handleCheckBox}
+              value={dish.id}
+              name={dish.title}
               ref={register}
-            />{dish.title}</label>
-        )
-        }
+            />
+          </div>
+        )}
+
       </div>
       <input type="submit" className="onSubmit" />
     </form>
+
+
+
   );
 }
 

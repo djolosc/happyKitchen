@@ -6,9 +6,8 @@ function DishForm ({ addNewDish }) {
   // eslint-disable-next-line 
   const { register, handleSubmit, errors, reset } = useForm();
 
-  // eslint-disable-next-line 
   const onSubmit = data => {
-    console.log(data)
+    addNewDish(data)
     reset()
   }
 
@@ -17,7 +16,7 @@ function DishForm ({ addNewDish }) {
     <form
       className="dish-form"
       // onSubmit={(e) => handleSubmit(addNewDish, onSubmit)}>
-      onSubmit={handleSubmit(addNewDish)}>
+      onSubmit={handleSubmit(onSubmit)}>
       <h2>Add a new dish</h2>
       <label>Title</label>
       <input
@@ -26,7 +25,7 @@ function DishForm ({ addNewDish }) {
         placeholder="Title"
         name="title"
         ref={register({ required: "Title required" })}
-      />+
+      />
       <label>Description</label>
       <input
         className="dishDescription"
