@@ -1,15 +1,11 @@
 import './menuForm.css';
-import { useState } from 'react';
 import { useForm } from "react-hook-form";
-import MenuItem from '../MenuItem/menuItem';
 
 function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }) {
 
-  console.log('selectedDishes -> ', selectedDishes);
   const { register, handleSubmit, reset } = useForm();
 
   //TODO MENU ITEM Fx
-
   const onSubmit = data => {
     const parsedData = {
       title: data.title,
@@ -17,7 +13,6 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes })
     }
     createNewMenu(parsedData);
     reset();
-
   }
 
   const handleCheckBox = (event) => {
@@ -28,7 +23,7 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes })
       setSelectedDishes(selectedDishes.filter(dish => dish !== event.target.value))
     }
   }
-  console.log({ dishes })
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="menu-title">
@@ -42,7 +37,6 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes })
         />
       </div>
       <div>
-
         {dishes.map((dish) =>
           <div key={dish.id}>
             <span >
@@ -55,7 +49,6 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes })
             />
           </div>
         )}
-
       </div>
       <input type="submit" className="onSubmit" />
     </form>

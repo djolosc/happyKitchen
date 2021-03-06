@@ -55,7 +55,6 @@ function App () {
       .then((order) => setOrders(prevOrders => [...prevOrders, order]))
   }
 
-  console.log('dishes -> ', dishes);
   return (
     <Router>
       <div className="App">

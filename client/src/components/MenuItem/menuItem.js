@@ -1,37 +1,35 @@
 import './menuItem.css';
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import ApiService from '../../ApiService'
 
 function MenuItem ({ menus }) {
-  const [menu, setMenu] = useState([]);
+  //TODO REPLACE ID BY TITLE
   let { id } = useParams();
-  // console.log('menus -> ', menus);
-  // console.log('id -> ', id);
-  // const getOneMenu = () => {
-  //   ApiService.getMenu()
-  //     .then(menus.filter(menu => setMenu(menu.id === id)))
-  // }
-  // console.log('getOneMenu: ', getOneMenu);
-  // console.log('menu -> ', menu);
 
-  useEffect(() => {
-    return fetch('http://localhost:3000/menu')
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-  }, []);
+  const selectedMenu = () => {
 
+    if (menus && menus.length > 0) {
+      return menus.find(menu => parseInt(menu.id) === parseInt(id));
+    }
+  }
 
+  let menu = selectedMenu()
 
   return (
     <div className='menuItem'>
+      { menus && menus.length > 0 && (
+        <>
+          <h2>ID: {id}</h2>
+          <h2>{menu.title}</h2>
+          {menu.Dishes.map(dish =>
+            <div>
+              <p>{dish.title}</p>
+              <p>{dish.description}</p>
+              <p>{dish.price}</p>
+            </div>
+          )}
 
-      <h2>ID: {id}</h2>
-      <h2>{menu.title}</h2>
-      {/* <span>
-        {selectedDishes.map(dish =>
-          <p>{dish.title}</p>
-        )}</span> */}
+        </>
+      )}
     </div>
   )
 }
