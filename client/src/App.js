@@ -34,6 +34,13 @@ function App () {
       .then((data) => setMenus(data))
   }, []);
 
+  const createNewMenu = (body) => {
+    ApiService.createMenu(body)
+      .then((menu) => setDishes(prevMenus => [...prevMenus, menu]))
+
+  }
+
+
   //ORDERS
   useEffect(() => {
     ApiService.getOrders()
@@ -58,9 +65,12 @@ function App () {
             <Route exact path="/dish">
               <DishList dishes={dishes} />
             </Route>
-            {/* <Route exact path="/create_menu">
-              <MenuForm dishes={dishes} />
-            </Route> */}
+            <Route exact path="/create_menu">
+              <MenuForm
+                dishes={dishes}
+              // createNewMenu={createNewMenu}
+              />
+            </Route>
             <Route exact path="/order">
               <OrderList orders={orders} />
             </Route>

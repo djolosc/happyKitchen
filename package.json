@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/YaniraP/happyKitchen/issues"
   },
-  "homepage": "https://github.com/YaniraP/happyKitchen#readme"
+  "homepage": "https://github.com/YaniraP/happyKitchen#readme",
+  "devDependencies": {
+    "eslint": "^7.21.0"
+  }
 }
