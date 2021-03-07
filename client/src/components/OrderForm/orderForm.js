@@ -1,21 +1,33 @@
 import './orderForm.css';
 import { useForm } from "react-hook-form";
+import MenuItemById from '../MenuItemById/menuItemById';
 
-function OrderForm ({ createNewOrder }) {
+
+//TODO ADD MENU WITH DISHES
+
+function OrderForm ({ createNewOrder, menus }) {
   // eslint-disable-next-line 
   const { register, handleSubmit, errors, reset } = useForm();
   // eslint-disable-next-line 
   const onSubmit = data => {
     console.log(data)
+    createNewOrder(data);
     reset()
   }
+
+  const selectedMenu = () => {
+    if (menus && menus.length > 0) {
+      return menus.find(menu => parseInt(menu.id) === 15);
+    }
+  }
+  let menu = selectedMenu();
 
   return (
     <form
       className="order-form"
-      // onSubmit={(e) => handleSubmit(createOrder, onSubmit)}>
-      onSubmit={handleSubmit(createNewOrder)}>
+      onSubmit={handleSubmit(onSubmit)}>
       <h2>Make your order</h2>
+
       <label>Name</label>
       <input
         className="clientName"

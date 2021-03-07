@@ -14,6 +14,7 @@ const addDish = (body) => {
   return fetchRequest('/dish', httpOptions);
 }
 
+
 //MENUS
 const getMenus = () => {
   return fetchRequest('/menu');
@@ -31,6 +32,16 @@ const createMenu = (body) => {
   };
   return fetchRequest('/menu', httpOptions);
 }
+
+//TODO CHECK IF IT WORKS
+const deleteMenu = (id) => {
+  const httpOptions = {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(id)
+  };
+  return fetchRequest(`/menu/:${id}`, httpOptions);
+};
 
 //ORDERS
 const getOrders = () => {
@@ -61,5 +72,6 @@ export default {
   addDish,
   createMenu,
   createOrder,
-  getMenu
+  getMenu,
+  // deleteMenu
 };

@@ -1,21 +1,24 @@
-import './menuItem.css';
+import './menuItemById.css';
 import { useParams } from "react-router-dom";
+import { useState } from 'react';
 
-function MenuItem ({ menus }) {
+function MenuItemById ({ menus, chosenMenu, setChosenMenu }) {
   //TODO REPLACE ID BY TITLE
+  //TODO CHOSENMENU IS NEEDED?
   let { id } = useParams();
 
-  const selectedMenu = () => {
 
+
+  const selectedMenu = () => {
     if (menus && menus.length > 0) {
       return menus.find(menu => parseInt(menu.id) === parseInt(id));
     }
   }
+  let menu = selectedMenu();
 
-  let menu = selectedMenu()
 
   return (
-    <div className='menuItem'>
+    <div className='menuItemById'>
       { menus && menus.length > 0 && (
         <>
           <h2>ID: {id}</h2>
@@ -34,4 +37,4 @@ function MenuItem ({ menus }) {
   )
 }
 
-export default MenuItem;
+export default MenuItemById;
