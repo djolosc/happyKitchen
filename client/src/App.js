@@ -11,7 +11,7 @@ import MenuForm from './components/MenuForm/menuForm';
 import OrderForm from './components/OrderForm/orderForm';
 import MenuItemById from './components/MenuItemById/menuItemById';
 import Home from './components/Home';
-import { Grid } from '@material-ui/core';
+import { CssBaseline, Grid } from '@material-ui/core';
 import TopNav from './components/AppTools/TopNav';
 import Content from './components/AppTools/Content';
 import BotNav from './components/AppTools/BotNav';
@@ -21,7 +21,7 @@ function App () {
   const [menus, setMenus] = useState([]);
   const [orders, setOrders] = useState([]);
   const [selectedDishes, setSelectedDishes] = useState([]);
-  const [chosenMenu, setChosenMenu] = useState([])
+  const [tab, setTab] = useState(0);
 
 
   //DISHES
@@ -53,7 +53,6 @@ function App () {
   };
 
 
-
   //ORDERS
   useEffect(() => {
     ApiService.getOrders()
@@ -66,10 +65,19 @@ function App () {
   }
 
   const containerStyle = {
-    height: "100vh",
+    height: "calc(100vh - 112px)",
     overFlow: "auto",
     textAlign: "center"
   }
+
+  // function renderView () {
+  //   switch (tab) {
+  //     case 0:
+  //       return <Content message={'Hello'} />
+  //   }
+  // }
+
+
 
   return (
     <Router>
@@ -77,11 +85,10 @@ function App () {
         <Grid container direction="column">
           {/* <Navbar /> */}
           <TopNav />
-
-
           <div style={containerStyle} className="content">
-            <Content />
+
             <Switch>
+
               <Route exact path="/menu">
                 <MenuList menus={menus} />
               </Route>
@@ -112,10 +119,13 @@ function App () {
                 />
               </Route>
               <Route exact path="/" component={Home} />
-              <BotNav />
+
             </Switch>
+            <Content />
           </div>
+          <BotNav value={tab} onChange={setTab} />
         </Grid>
+        <CssBaseline />
       </div>
     </Router>
 

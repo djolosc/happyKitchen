@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize('easyKitchen', 'postgres', 'admin', {
+const sequelize = new Sequelize('easyKitchenBeta', 'postgres', 'admin', {
   host: 'localhost',
   dialect: 'postgres',
   logging: console.log,
@@ -38,13 +38,13 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 sequelize
-.authenticate()
-.then(()=> {
-  console.log('Connection has been established succesfully.')
-})
-.catch((error)=> {
-  console.error('Unable to connect to the database:', error)
-});
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established succesfully.')
+  })
+  .catch((error) => {
+    console.error('Unable to connect to the database:', error)
+  });
 
 module.exports = db;
 

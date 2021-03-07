@@ -1,9 +1,14 @@
+import { AppBar, Toolbar, Avatar } from "@material-ui/core";
+
+
 
 function TopNav () {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <AppBar position="static">
+      <Toolbar>
+        <Avatar>eK</Avatar>
+      </Toolbar>
+    </AppBar>
   )
 }
 

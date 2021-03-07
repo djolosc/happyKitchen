@@ -56,7 +56,7 @@ exports.deleteMenu = async (req, res) => {
   Menu.destroy({
     where: { title: title }
   }).then(() => {
-    res.status(204).end();
+    res.status(204).send(id);
   })
     .catch(err => {
       res.status(500).send({
@@ -67,3 +67,4 @@ exports.deleteMenu = async (req, res) => {
 
 
 //TODO: modify a menu (if needed later)
+
