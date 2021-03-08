@@ -1,12 +1,11 @@
 import './orderForm.css';
 import { useForm } from "react-hook-form";
-import MenuItemById from '../MenuItemById/menuItemById';
+// import MenuItemById from '../MenuItemById/menuItemById';
 
 
 //TODO ADD MENU WITH DISHES
 
-function OrderForm ({ createNewOrder, menus }) {
-  // eslint-disable-next-line 
+function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }) {
   const { register, handleSubmit, errors, reset } = useForm();
   // eslint-disable-next-line 
   const onSubmit = data => {
@@ -15,19 +14,51 @@ function OrderForm ({ createNewOrder, menus }) {
     reset()
   }
 
-  const selectedMenu = () => {
-    if (menus && menus.length > 0) {
-      return menus.find(menu => parseInt(menu.id) === 15);
+  // const selectedMenu = () => {
+  //   if (menus && menus.length > 0) {
+  //     return menus.find(menu => parseInt(menu.id) === id);
+  //   }
+  // }
+  // let menu = selectedMenu();
+
+  console.log('menus -> ', menus);
+
+  const handleCheckBox = (event) => {
+    event.preventDefault()
+    if (event.target.checked) {
+      setChosenMenu([...chosenMenu, event.target.value])
+    } else {
+      setChosenMenu(chosenMenu.filter(dish => dish !== event.target.value))
     }
   }
-  let menu = selectedMenu();
+
 
   return (
     <form
       className="order-form"
       onSubmit={handleSubmit(onSubmit)}>
       <h2>Make your order</h2>
+      { menus && menus.length > 0 && (
+        <>
+          <p>{menus[0].title}</p>
 
+          <div>
+            {dishes.map((dish) =>
+              <div key={dish.id}>
+                <h2 >{dish.title}</h2>
+                <p >{dish.description}</p>
+                <p >{dish.price}</p>
+                <input type="checkbox"
+                  onChange={handleCheckBox}
+                  value={dish.id}
+                  name={dish.title}
+                  ref={register}
+                />
+              </div>
+            )}
+          </div>
+        </>
+      )}
       <label>Name</label>
       <input
         className="clientName"

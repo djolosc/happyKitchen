@@ -1,6 +1,5 @@
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
-import { Home, People, Menu } from '@material-ui/icons';
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Home, People } from '@material-ui/icons';
 import { Link } from "react-router-dom";
 import React from 'react';
 
@@ -13,13 +12,11 @@ function BotNav () {
   };
   return (
     <BottomNavigation value={value} onChange={handleChange} showLabels={true} >
-      <BottomNavigationAction label="Menu" value="/create_menu" icon={<Menu />} component={Link} to='/create_menu' />
       <BottomNavigationAction label="Home" value="/" icon={<Home />} component={Link} to='/' />
-      <BottomNavigationAction label="User" value="/add_dish" icon={<People />} component={Link} to='/add_dish' />
+      <BottomNavigationAction label="User" value="/create_order" icon={<People />} component={Link} to='/create_order' />
     </BottomNavigation>
   );
 }
-
 
 export default BotNav;
 

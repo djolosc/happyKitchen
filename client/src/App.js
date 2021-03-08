@@ -5,7 +5,7 @@ import ApiService from './ApiService';
 import DishList from './components/DishList/dishList';
 import MenuList from './components/MenuList/menuList';
 import OrderList from './components/OrderList/orderList';
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import DishForm from './components/DishForm/dishForm';
 import MenuForm from './components/MenuForm/menuForm';
 import OrderForm from './components/OrderForm/orderForm';
@@ -21,6 +21,7 @@ function App () {
   const [menus, setMenus] = useState([]);
   const [orders, setOrders] = useState([]);
   const [selectedDishes, setSelectedDishes] = useState([]);
+  const [chosenMenu, setChosenMenu] = useState([]);
   const [tab, setTab] = useState(0);
 
 
@@ -70,14 +71,6 @@ function App () {
     textAlign: "center"
   }
 
-  // function renderView () {
-  //   switch (tab) {
-  //     case 0:
-  //       return <Content message={'Hello'} />
-  //   }
-  // }
-
-
 
   return (
     <Router>
@@ -108,10 +101,19 @@ function App () {
                 />
               </Route>
               <Route exact path="/order">
-                <OrderList orders={orders} />
+                <OrderList
+                  orders={orders}
+                  chosenMenu={chosenMenu}
+                />
               </Route>
               <Route exact path="/create_order">
-                <OrderForm createNewOrder={createNewOrder} />
+                <OrderForm
+                  createNewOrder={createNewOrder}
+                  menus={menus}
+                  dishes={dishes}
+                  chosenMenu={chosenMenu}
+                  setChosenMenu={setChosenMenu}
+                />
               </Route>
               <Route exact path="/menu/:id">
                 <MenuItemById

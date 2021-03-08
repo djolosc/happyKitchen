@@ -1,17 +1,13 @@
 import './menuForm.css';
 import { useForm } from "react-hook-form";
-import { useLocation, useParams, useHistory } from 'react-router';
-//TODO IMPORT BOOTSTARP & INSTALL
-// import 'bootstrap/dist/boot.css' 
+import { useParams } from 'react-router';
+
 
 function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, menus }) {
 
   const { register, handleSubmit, reset } = useForm();
   let { id } = useParams();
-  const location = useLocation();
-  const history = useHistory()
-  console.log('loc', location);
-  console.log('his', history);
+
 
   // const shouldRedirect = false;
   //TODO navigate to menu item, remove should Redirect, etc
