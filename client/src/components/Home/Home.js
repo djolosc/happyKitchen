@@ -1,8 +1,9 @@
+import './Home.css'
 
 //TODO: ADD BACKGROUND IMAGE
 function Home () {
   return (
-    <div>
+    <div className="container-home">
       HOME
     </div>
   )

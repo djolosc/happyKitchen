@@ -11,7 +11,9 @@
   margin: 0 6vw;
   height: 60vh; 
   max-width: 25vw;
-}
+  overflow-y: hidden
+} 
+
 
   label {
     font-weight: 550;

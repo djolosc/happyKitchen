@@ -49,7 +49,7 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
           <div key={dish.id}>
             <h2 >{dish.title}</h2>
             <p >{dish.description}</p>
-            <p >{dish.price}</p>
+            <p >€ {dish.price}</p>
             <input type="checkbox"
               onChange={handleCheckBox}
               value={dish.id}

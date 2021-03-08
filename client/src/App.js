@@ -10,11 +10,11 @@ import DishForm from './components/DishForm/dishForm';
 import MenuForm from './components/MenuForm/menuForm';
 import OrderForm from './components/OrderForm/orderForm';
 import MenuItemById from './components/MenuItemById/menuItemById';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import { CssBaseline, Grid } from '@material-ui/core';
-import TopNav from './components/AppTools/TopNav';
+import TopNav from './components/AppTools/TopNav/TopNav';
 // import Content from './components/AppTools/Content';
-import BotNav from './components/AppTools/BotNav';
+import BotNav from './components/AppTools/BotNav/BotNav';
 
 function App () {
   const [dishes, setDishes] = useState([]);
@@ -71,6 +71,7 @@ function App () {
     height: "calc(100vh - 112px)",
     overFlow: "auto",
     textAlign: "center"
+
   }
 
 

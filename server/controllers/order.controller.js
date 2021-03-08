@@ -20,7 +20,10 @@ exports.getAll = async (req, res) => {
 exports.createOrder = async (req, res) => {
   try {
     const newOrder = await Order.create(req.body);
+    console.log('req.body -> ', req.body);
+    // const newOrder = await Order.create(req.body.DishId);
     newOrder.addDish(req.body.DishId); //update join table data
+    newOrder.save();
     res.status(201);
     res.send(newOrder)
   } catch (e) {

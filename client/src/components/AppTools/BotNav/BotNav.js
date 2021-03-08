@@ -11,10 +11,12 @@ function BotNav () {
     setValue(newValue);
   };
   return (
-    <BottomNavigation value={value} onChange={handleChange} showLabels={true} >
-      <BottomNavigationAction label="Home" value="/" icon={<Home />} component={Link} to='/' />
-      <BottomNavigationAction label="User" value="/create_order" icon={<People />} component={Link} to='/create_order' />
-    </BottomNavigation>
+    <div className="btn-nav">
+      <BottomNavigation value={value} onChange={handleChange} showLabels={true} >
+        <BottomNavigationAction label="Home" value="/" icon={<Home />} component={Link} to='/' />
+        <BottomNavigationAction label="User" value="/create_order" icon={<People />} component={Link} to='/create_order' />
+      </BottomNavigation>
+    </div>
   );
 }
 

@@ -1,3 +1,6 @@
-/* .menuList {
-  
-} */
+.order-list-container {
+
+  justify-content: "center";
+  overflow: hidden;
+
+}

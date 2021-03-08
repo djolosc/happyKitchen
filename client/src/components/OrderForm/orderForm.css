@@ -39,10 +39,34 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  background: -webkit-linear-gradient(90deg, #f8ecec, #dae2f8);  /* Chrome 10-25, Safari 5.1-6 */
+
 }
 
-.input-field-container {
+@media only screen and (max-width: 600px) {
+  .send-button {
+    width: 20%;
+    min-width: 10px;
+  }
+
+  .input-container {
+    padding: 15px 20px;
+  }
+}
+
+/* .input-field-container {
   display: flex;
   flex-direction: column;
   padding: 1rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .send-button {
+    width: 20%;
+    min-width: 10px;
+  }
+
+  .input-container {
+    padding: 15px 20px;
+  }
+} */

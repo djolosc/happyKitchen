@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Grid } from "@material-ui/core";
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -6,16 +6,32 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { withRouter } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    // display: "flex"
+    position: "sticky",
+    backgroundColor: "white"
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    display: "flex",
+    color: "black"
+
+
   },
   title: {
     flexGrow: 1,
   },
+  logo: {
+    width: "170px",
+    height: "45px",
+    marginTop: "15px",
+    marginBottom: "15px",
+
+  }
 }));
 
 function TopNav () {
@@ -37,8 +53,9 @@ function TopNav () {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
+          <img src={"/Logo-easykitchen.png"} alt="logo" className={classes.logo} />
+
           <Typography variant="h6" className={classes.title}>
-            easyKitchen
           </Typography>
           <div>
             <IconButton
@@ -73,9 +90,10 @@ function TopNav () {
           </div>
         </Toolbar>
       </AppBar>
-    </div>
+    </div >
   );
 }
 
 export default withRouter(TopNav);
+
 

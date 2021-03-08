@@ -4,7 +4,6 @@ function OrderItem ({ order, chosenMenu }) {
   console.log('orderD -> ', order.Dishes[0].title);
   console.log('orderD -> ', order.Dishes.map((dish) => console.log(dish.title)));
 
-  //TODO: FIX DISHES AND PHONE (NOT RENDERED)
   return (
     <div className='orderItem'>
       <p>Order ID: {order.id}</p>

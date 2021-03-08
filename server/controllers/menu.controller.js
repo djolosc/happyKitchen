@@ -35,9 +35,10 @@ exports.getOneMenu = async (req, res) => {
 
 // create a menu 
 exports.createMenu = async (req, res) => {
-  console.log('req.body -> ', req.body);
+  console.log('req.body -> ', req.body.DishId);
   try {
-    const newMenu = await Menu.create({ title: req.body.title });
+    // const newMenu = await Menu.create({ title: req.body.title });
+    const newMenu = await Menu.create(req.body);
     newMenu.addDish(req.body.DishId);
     res.status(201);
     res.send(newMenu)

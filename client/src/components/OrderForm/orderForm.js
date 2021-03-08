@@ -56,16 +56,16 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
         <h2>Make your order</h2>
         {menus && menus.length > 0 && (
           <>
-            <p>{menus[0].title}</p>
+            {/* <p>{menus[0].title}</p> */}
 
             <div >
 
               {menus[0].Dishes.map((dish) =>
                 <div key={dish.id} className="flexChild">
                   <h2 >{dish.title}</h2>
-                  <p >{dish.id}</p>
+                  {/* <p >{dish.id}</p> */}
                   <p >{dish.description}</p>
-                  <p >{dish.price}</p>
+                  <p >€ {dish.price}</p>
                   <input type="checkbox"
                     onChange={handleCheckBox}
                     value={dish.id}
@@ -76,21 +76,6 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
               )}
             </div>
 
-            {/* <div>
-            {dishes.map((dish) =>
-              <div key={dish.id}>
-                <h2 >{dish.title}</h2>
-                <p >{dish.description}</p>
-                <p >{dish.price}</p>
-                <input type="checkbox"
-                  onChange={handleCheckBox}
-                  value={dish.id}
-                  name={dish.title}
-                  ref={register}
-                />
-              </div>
-            )}
-          </div> */}
           </>
         )}
         <div className="input-field-container">
@@ -127,7 +112,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
             ref={register()}
           />
           <input
-            className="add-order-btn"
+            className=".send-button"
             type="submit"
           />
           {errors.title && <p>{errors.title.message}</p>}

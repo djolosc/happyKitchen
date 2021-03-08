@@ -1,0 +1,5 @@
+.container-home {
+background-image: url("/home/yanira/CodeworksSenior/soloProject/happyKitchen/client/src/img/background-easykitchen-1.jpg");
+height: calc(100vh - 112px); 
+
+ }
