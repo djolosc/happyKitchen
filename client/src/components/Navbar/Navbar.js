@@ -2,8 +2,8 @@ import './Navbar.css';
 import { Link } from "react-router-dom";
 
 
-//TODO UPDATE CLASSNAME
-//TODO UPDATE DYMANIC ID (MENU 15)
+//TODO DELETE IT WHEN FINISH
+
 function Navbar () {
   return (
     <nav className="navbar">
@@ -18,7 +18,7 @@ function Navbar () {
           <li className="btn-order"><Link to="/order">See orders</Link></li>
           <li className="btn-order"><Link to="/create_order">Create orders</Link></li>
 
-          <li className="btn-order"><Link to="/menu/15">Menu 15</Link></li>
+          <li className="btn-order"><Link to="/menu/id">Menu </Link></li>
         </ul>
       </div>
     </nav>

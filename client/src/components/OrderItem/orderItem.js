@@ -1,26 +1,25 @@
 function OrderItem ({ order, chosenMenu }) {
   console.log('chosenMenu -> ', chosenMenu);
   console.log('order -> ', order);
+  console.log('orderD -> ', order.Dishes[0].title);
+  console.log('orderD -> ', order.Dishes.map((dish) => console.log(dish.title)));
 
   //TODO: FIX DISHES AND PHONE (NOT RENDERED)
   return (
     <div className='orderItem'>
-      <p>{order.id}</p>
-      <p>{order.clientName}</p>
-      <p>{order.clientAddress}</p>
-      <p>{order.phone}</p>
-      <p>{order.comments}</p>
-      { chosenMenu && chosenMenu.length > 0 && (
-        <>
-          <div>
-            {chosenMenu.map((dish) =>
-              <div key={dish.id}>
-                <p >{dish.title}</p>
+      <p>Order ID: {order.id}</p>
+      <p>Name: {order.clientName}</p>
+      <p>Address:  {order.clientAddress}</p>
+      <p>Phone: {order.clientPhone}</p>
+      <p>Comments: {order.comments}</p>
 
-              </div>
-            )}
-          </div>
-        </>
+      {order.Dishes.map((dish) =>
+        <div key={dish.id}>
+          <p >{dish.title}</p>
+
+        </div>
+
+
       )}
     </div>
   )

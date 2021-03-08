@@ -1,3 +1,48 @@
-/* .orderForm {
-  
+/* 
+
+
+/* .container-label{
+  display: flex;
+  flex-direction:inherit ;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
 } */
+/* 
+.flexChild {
+  width: 80%;
+  max-width: 500px;
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px solid blue;
+
+  }
+  .container-label {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+
+  .flexChild{
+    width: 40%;
+  }
+}  */
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.input-field-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}

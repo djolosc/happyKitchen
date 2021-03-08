@@ -2,15 +2,13 @@ import './menuForm.css';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 
+//TODO fix => navigate to menu item by Id
 
 function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, menus }) {
 
   const { register, handleSubmit, reset } = useForm();
   let { id } = useParams();
 
-
-  // const shouldRedirect = false;
-  //TODO navigate to menu item, remove should Redirect, etc
 
   const onSubmit = data => {
 
@@ -21,16 +19,13 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
     createNewMenu(parsedData);
     reset();
     console.log(alert('Menu havs been saved successfully!'))
-    // location.replace(`/menu/${id}`)
-    // return  <Redirect  to=`/menu/${id}`/>
-    // props.history.push(`/menu/${id}`);
-
   }
 
   const handleCheckBox = (event) => {
     event.preventDefault()
     if (event.target.checked) {
       setSelectedDishes([...selectedDishes, event.target.value])
+
     } else {
       setSelectedDishes(selectedDishes.filter(dish => dish !== event.target.value))
     }
@@ -44,7 +39,7 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
         <input
           className="menuTitle"
           type="text"
-          placeholder="Menu"
+          placeholder="Insert Menu name"
           name="title"
           ref={register({ required: "Title required" })}
         />

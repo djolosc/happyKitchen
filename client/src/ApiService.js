@@ -48,6 +48,7 @@ const getOrders = () => {
   return fetchRequest('/order');
 }
 
+//TODO: MENU CHECK POINT DOESN'T WORK
 const createOrder = (body) => {
   const httpOptions = {
     method: 'POST',

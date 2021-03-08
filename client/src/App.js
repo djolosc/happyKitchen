@@ -13,7 +13,7 @@ import MenuItemById from './components/MenuItemById/menuItemById';
 import Home from './components/Home';
 import { CssBaseline, Grid } from '@material-ui/core';
 import TopNav from './components/AppTools/TopNav';
-import Content from './components/AppTools/Content';
+// import Content from './components/AppTools/Content';
 import BotNav from './components/AppTools/BotNav';
 
 function App () {
@@ -65,6 +65,8 @@ function App () {
       .then((order) => setOrders(prevOrders => [...prevOrders, order]))
   }
 
+
+  //STYLE
   const containerStyle = {
     height: "calc(100vh - 112px)",
     overFlow: "auto",
@@ -123,7 +125,7 @@ function App () {
               <Route exact path="/" component={Home} />
 
             </Switch>
-            <Content />
+            {/* <Content /> */}
           </div>
           <BotNav value={tab} onChange={setTab} />
         </Grid>

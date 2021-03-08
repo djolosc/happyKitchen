@@ -5,7 +5,10 @@ function MenuItemList ({ menu }) {
   console.log('menu -> ', menu);
   return (
     <div className='menuItemList'>
-      <p>{menu.title}</p>
+      <h3>{menu.title}</h3>
+      <p>{menu.Dishes.map(dish =>
+        <p>{dish.title}</p>
+      )}</p>
     </div>
   )
 }

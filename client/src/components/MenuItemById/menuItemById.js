@@ -1,13 +1,13 @@
 import './menuItemById.css';
 import { useParams } from "react-router-dom";
-import { useState } from 'react';
+
+
+//TODO: REPLACE ID BY TITLE
+//TODO: CHECK IF CHOSENMENU IS NEEDED?
 
 function MenuItemById ({ menus, chosenMenu, setChosenMenu }) {
-  //TODO REPLACE ID BY TITLE
-  //TODO CHOSENMENU IS NEEDED?
+
   let { id } = useParams();
-
-
 
   const selectedMenu = () => {
     if (menus && menus.length > 0) {
