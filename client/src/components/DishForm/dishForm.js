@@ -15,6 +15,11 @@ function DishForm ({ addNewDish }) {
 
   return (
     <Grid container direction="column" alignItems="center" justify="center">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+</style>
+
+
       <form
         className="dish-form"
         onSubmit={handleSubmit(onSubmit)}>

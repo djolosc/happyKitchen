@@ -33,15 +33,47 @@
   }
 }  */
 
+/* .title {
+  font-family: 'Noto Sans JP', sans-serif;
+font-size: 80px;
+padding-top: 1%;
+ } */
+
+
+h2 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 48px;
+}
+
+
+h3 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 43px;
+}
+p {
+  font-size: 28px;
+}
+
 .container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  background: -webkit-linear-gradient(90deg, #f8ecec, #dae2f8);  /* Chrome 10-25, Safari 5.1-6 */
-
+  /* background: -webkit-linear-gradient(90deg, #f8ecec, #dae2f8);  Chrome 10-25, Safari 5.1-6 */
+  /* background-image: url("/home/yanira/CodeworksSenior/soloProject/happyKitchen/client/src/img/color-azul.jpg"); */
+background-color: #b9dcd6;
 }
+
+.checkbox {
+height: 23px;
+width: 25%;
+}
+
+input .checkbox {
+  height: 50px;
+  width: 20%;
+  }
 
 @media only screen and (max-width: 600px) {
   .send-button {

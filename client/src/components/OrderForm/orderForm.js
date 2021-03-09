@@ -36,9 +36,6 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
   const handleCheckBox = (event) => {
     event.preventDefault()
     if (event.target.checked) {
-      console.log('eCO', event.target.checked)
-      console.log('eVO', event.target.value)
-      console.log('eVo', event.target)
       setChosenMenu([...chosenMenu, event.target.value])
       console.log('cM', typeof chosenMenu[0])
     } else {
@@ -52,8 +49,13 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
     <form
       className="order-form"
       onSubmit={handleSubmit(onSubmit)}>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+</style>
       <div className="container">
-        <h2>Make your order</h2>
+
+        <h2>MAKE YOUR ORDER</h2>
+        {/* <div className="title">WHAT DO YOU WANT TO EAT?</div> */}
         {menus && menus.length > 0 && (
           <>
             {/* <p>{menus[0].title}</p> */}
@@ -62,8 +64,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
 
               {menus[0].Dishes.map((dish) =>
                 <div key={dish.id} className="flexChild">
-                  <h2 >{dish.title}</h2>
-                  {/* <p >{dish.id}</p> */}
+                  <h3 >{dish.title}</h3>
                   <p >{dish.description}</p>
                   <p >€ {dish.price}</p>
                   <input type="checkbox"
@@ -71,6 +72,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
                     value={dish.id}
                     name={dish.title}
                     ref={register}
+                    className="checkbox"
                   />
                 </div>
               )}
@@ -79,7 +81,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
           </>
         )}
         <div className="input-field-container">
-          <label>Name</label>
+          <label> PLEASE, ENTER YOU DETAILS</label>
           <input
             className="clientName"
             type="text"
@@ -87,7 +89,8 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
             name="clientName"
             ref={register({ required: "Name required" })}
           />
-          <label>Address</label>
+          {/* <label>Address</label> */}
+          <label></label>
           <input
             className="clientAddress"
             type="text"
@@ -95,7 +98,8 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
             name="clientAddress"
             ref={register({ required: "Address required" })}
           />
-          <label>Phone</label>
+          {/* <label>Phone</label> */}
+          <label></label>
           <input
             className="clientPhone"
             type="number"
@@ -103,7 +107,8 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
             name="clientPhone"
             ref={register()}
           />
-          <label>Comments</label>
+          {/* <label>Comments</label> */}
+          <label></label>
           <input
             className="comments"
             type="text"
@@ -111,6 +116,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
             name="comments"
             ref={register()}
           />
+          <label></label>
           <input
             className=".send-button"
             type="submit"

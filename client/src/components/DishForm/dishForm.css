@@ -11,32 +11,52 @@
   margin: 0 6vw;
   height: 60vh; 
   max-width: 25vw;
-  overflow-y: hidden
+  overflow-y: hidden;
+
 } 
 
+h2 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 50px;
+}
 
   label {
     font-weight: 550;
     margin-bottom: 0.5vw;
+    display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  width: 400px;
+  line-height: 26px;
+  /* margin-bottom: 10px; */
   }
 
   input {
     font-size: 1rem;
-    margin-bottom: 1vw;
+    margin-bottom: 3vw;
     padding: 1vh;
     height: 2.5rem;
     width: inherit;
-    border: 0.5px solid #eee;
+    border: 2px solid rgb(231, 227, 227);
     border-radius: 7px;
     outline: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 25px;
+    color: black;
+    /* height: 20px; */
+    flex: 0 0 200px;
+    margin-left: 10px;
   }
 
   .add-dish-btn {
     border-radius: 7px;
     border: 0.5px solid #eee;
-    background-color: blue;
+    background-color: #74a0bf;
     height: 3rem;
+    width: 50%;
     font-weight: 600;
     color: white;
     border: none;
+    box-shadow: rgb(44, 41, 41);
   }

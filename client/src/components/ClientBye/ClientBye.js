@@ -1,16 +1,16 @@
-import './Home.css'
+import './ClientBye.css'
 
 //TODO: ADD BACKGROUND IMAGE
-function Home () {
+function ClientBye () {
   return (
 
-    <div className="container-home">
+    <div className="container-clientBye">
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
 </style>
-      Let's cook!
+      Enjoy your Meal!
     </div>
   )
 }
 
-export default Home;
+export default ClientBye;

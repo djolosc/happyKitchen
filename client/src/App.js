@@ -15,6 +15,7 @@ import { CssBaseline, Grid } from '@material-ui/core';
 import TopNav from './components/AppTools/TopNav/TopNav';
 // import Content from './components/AppTools/Content';
 import BotNav from './components/AppTools/BotNav/BotNav';
+import ClientBye from './components/ClientBye/ClientBye'
 
 function App () {
   const [dishes, setDishes] = useState([]);
@@ -76,7 +77,11 @@ function App () {
 
 
   return (
+
     <Router>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+</style>
       <div className="App">
         <Grid container direction="column">
           {/* <Navbar /> */}
@@ -124,7 +129,7 @@ function App () {
                 />
               </Route>
               <Route exact path="/" component={Home} />
-
+              <Route exact path="/bye" component={ClientBye} />
             </Switch>
             {/* <Content /> */}
           </div>
