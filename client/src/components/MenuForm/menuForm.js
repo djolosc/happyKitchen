@@ -19,6 +19,7 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
       DishId: selectedDishes.map(id => parseInt(id))
     }
     createNewMenu(parsedData);
+    // setSelectedDishes([]);
     reset();
     history.push('/menu_saved');
   }
@@ -46,8 +47,8 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
         />
       </div>
       <div className="menu-item">
-        {dishes.map((dish) =>
-          <div key={dish.id}>
+        {dishes?.map((dish) =>
+          <div className="dish" key={dish.id}>
             <h3 >{dish.title}</h3>
             <p >{dish.description}</p>
             <p >€ {dish.price}</p>

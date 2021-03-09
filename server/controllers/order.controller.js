@@ -1,4 +1,5 @@
 // const db = require('../models/index');
+const { CLIEngine } = require('eslint');
 const { Order, Dish } = require('../models');
 
 
@@ -9,6 +10,7 @@ exports.getAll = async (req, res) => {
       include: [{ model: Dish }]
     });
     res.status(200)
+    console.log('orders -> ', orders);
     res.send(orders)
   } catch (e) {
     console.log(e)  //eslint-disable-line no-console
@@ -20,12 +22,13 @@ exports.getAll = async (req, res) => {
 exports.createOrder = async (req, res) => {
   try {
     const newOrder = await Order.create(req.body);
-    console.log('req.body -> ', req.body);
     // const newOrder = await Order.create(req.body.DishId);
-    const dishes = await newOrder.addDish(req.body.DishId); //update join table data
+    await newOrder.setDishes(req.body.DishId); //update join table data
+    const dishes = await newOrder.getDishes();
+    console.log('dishes -> ', dishes);
     const body = newOrder.toJSON()
-    body.Dishes = dishes;
-    console.log(body)
+    body.Dishes = dishes.flat().map(dish => dish.toJSON());
+    console.log('createOrderBody', body)
     // await newOrder.save();
     res.status(201);
     res.send(body)

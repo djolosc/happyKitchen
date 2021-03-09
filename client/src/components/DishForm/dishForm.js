@@ -1,15 +1,19 @@
 import './dishForm.css';
 import { useForm } from "react-hook-form";
 import { Grid } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 
 function DishForm ({ addNewDish }) {
 
   const { register, handleSubmit, errors, reset } = useForm();
+  const history = useHistory();
 
   const onSubmit = data => {
     addNewDish(data);
     reset();
+    history.push('/dish_saved');
   };
 
   return (
@@ -65,4 +69,4 @@ function DishForm ({ addNewDish }) {
 
 }
 
-export default DishForm;
+export default withRouter(DishForm);

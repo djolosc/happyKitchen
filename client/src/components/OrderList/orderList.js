@@ -64,7 +64,7 @@ function OrderList ({ orders }) {
                 <StyledTableCell align="right">{order.clientAddress}</StyledTableCell>
                 <StyledTableCell align="right">{order.clientPhone}</StyledTableCell>
                 <StyledTableCell align="right">{order.comments}</StyledTableCell>
-                <StyledTableCell align="right">{order.Dishes.map(dish => `| ${dish.title} |`)}</StyledTableCell>
+                <StyledTableCell align="right">{order.Dishes?.map(dish => `| ${dish?.title} |`)}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

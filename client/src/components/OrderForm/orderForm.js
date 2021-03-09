@@ -22,7 +22,8 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
     console.log('PD', parsedData)
     console.log('data', data)
     createNewOrder(parsedData);
-    reset()
+    setChosenMenu([]);
+    reset();
     history.push('/bye');
   }
 
@@ -62,9 +63,9 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
           <>
             {/* <p>{menus[0].title}</p> */}
 
-            <div >
+            <div className="elem-dish">
 
-              {menus[0].Dishes.map((dish) =>
+              {menus[0]?.Dishes.map((dish) =>
                 <div key={dish.id} className="flexChild">
                   <h3 className="title">{dish.title}</h3>
                   <p className="description">{dish.description}</p>

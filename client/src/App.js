@@ -17,6 +17,8 @@ import TopNav from './components/AppTools/TopNav/TopNav';
 import BotNav from './components/AppTools/BotNav/BotNav';
 import ClientBye from './components/ClientBye/ClientBye'
 import MenuSaved from './components/MenuSaved/MenuSaved'
+import GetStarted from './components/GetStarted/getStarted'
+import DishSaved from './components/DishSaved/DishSaved'
 
 function App () {
   const [dishes, setDishes] = useState([]);
@@ -132,7 +134,9 @@ function App () {
                   menus={menus}
                 />
               </Route>
+              <Route exact path="/get_started" component={GetStarted} />
               <Route exact path="/" component={Home} />
+              <Route exact path="/dish_saved" component={DishSaved} />
               <Route exact path="/menu_saved" component={MenuSaved} />
               <Route exact path="/bye" component={ClientBye} />
             </Switch>

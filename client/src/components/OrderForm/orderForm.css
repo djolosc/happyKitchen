@@ -1,45 +1,6 @@
-/* 
-
-
-/* .container-label{
-  display: flex;
-  flex-direction:inherit ;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-} */
-/* 
-.flexChild {
-  width: 80%;
-  max-width: 500px;
+*{
+  box-sizing: border-box;
 }
-
-@media screen and (min-width: 800px) {
-  .container {
-    flex-direction: row;
-    justify-content: space-evenly;
-    border: 1px solid blue;
-
-  }
-  .container-label {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-
-
-  .flexChild{
-    width: 40%;
-  }
-}  */
-
-/* .title {
-  font-family: 'Noto Sans JP', sans-serif;
-font-size: 80px;
-padding-top: 1%;
- } */
-
-
 h2 {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 48px;
@@ -52,7 +13,7 @@ h2 {
 
 h3 {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 43px;
+  font-size: 38px;
 }
 p {
   font-size: 23px;
@@ -111,19 +72,19 @@ input .checkbox {
   border: none;
   box-shadow: rgb(44, 41, 41);
 }
-/* .input-field-container {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
+
+.flexChild {
+  background-color: white;
+  width: 450px;
+  height: 350px;
+  margin: 10px 60px 180px 60px;
+  /* height: 200px; */
+  box-shadow: 2px 3px 2px 3px  #888888;
+  padding: 5px 10px;
+  /* display: flex; */
 }
 
-@media only screen and (max-width: 600px) {
-  .send-button {
-    width: 20%;
-    min-width: 10px;
-  }
-
-  .input-container {
-    padding: 15px 20px;
-  }
-} */
+.elem-dish {
+  display: flex;
+  flex-wrap: wrap;
+}

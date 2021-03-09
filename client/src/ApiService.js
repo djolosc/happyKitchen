@@ -55,6 +55,7 @@ const createOrder = (body) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   };
+  console.log('bodyApi -> ', body);
   return fetchRequest('/order', httpOptions);
 }
 
