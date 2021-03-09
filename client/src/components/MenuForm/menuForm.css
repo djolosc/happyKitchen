@@ -1,0 +1,46 @@
+*{
+  box-sizing: border-box;
+}
+
+.form {
+  overflow-y: scroll;
+}
+
+label {
+  /* justify-content: center; */
+}
+
+.menu-title {
+  padding-top: 1%;
+  border-radius: 0.5px solid black;
+  background-color: #8dc1c3;
+  /* background: -webkit-linear-gradient(90deg, #cac4c4, #8dc1c3);  Chrome 10-25, Safari 5.1-6 */
+  height: 100px;
+}
+
+.menu-item{
+  margin-bottom: 10px;
+}
+
+.checkbox {
+  height: 23px;
+  width: 25%;
+  }
+  
+  input .checkbox {
+    height: 50px;
+    width: 20%;
+    }
+
+.onSubmit {
+    border-radius: 7px;
+    border: 0.5px solid #eee;
+    background-color: #8dc1c3;
+    height: 2rem;
+    width: 15%;
+    font-weight: 600;
+    color: white;
+    border: none;
+    box-shadow: rgb(44, 41, 41);
+    padding-bottom: 3%;
+  }

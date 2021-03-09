@@ -22,8 +22,6 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
     reset()
   }
 
-  console.log('menus -> ', menus);
-
   // const selectedMenu = () => {
   //   if (menus && menus.length > 0) {
   //     return menus.find(menu => parseInt(menu.id) === id);
@@ -54,8 +52,8 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
 </style>
       <div className="container">
 
-        <h2>MAKE YOUR ORDER</h2>
-        {/* <div className="title">WHAT DO YOU WANT TO EAT?</div> */}
+        <h2 className="title-order">YOUR ORDER</h2>
+
         {menus && menus.length > 0 && (
           <>
             {/* <p>{menus[0].title}</p> */}
@@ -64,8 +62,8 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
 
               {menus[0].Dishes.map((dish) =>
                 <div key={dish.id} className="flexChild">
-                  <h3 >{dish.title}</h3>
-                  <p >{dish.description}</p>
+                  <h3 className="title">{dish.title}</h3>
+                  <p className="description">{dish.description}</p>
                   <p >€ {dish.price}</p>
                   <input type="checkbox"
                     onChange={handleCheckBox}
@@ -81,7 +79,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
           </>
         )}
         <div className="input-field-container">
-          <label> PLEASE, ENTER YOU DETAILS</label>
+          <h2 className="contact-details"> CONTACT INFORMATON</h2>
           <input
             className="clientName"
             type="text"
@@ -118,7 +116,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
           />
           <label></label>
           <input
-            className=".send-button"
+            className="send-button"
             type="submit"
           />
           {errors.title && <p>{errors.title.message}</p>}
@@ -126,7 +124,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
           {errors.price && <p>{errors.price.message}</p>}
         </div>
       </div>
-    </form>
+    </form >
   );
 
 }

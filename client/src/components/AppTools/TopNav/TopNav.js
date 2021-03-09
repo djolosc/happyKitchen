@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Grid } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -10,16 +10,12 @@ import { useHistory } from 'react-router';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    // display: "flex"
     position: "sticky",
-    backgroundColor: "#f8d537"
   },
   menuButton: {
     marginRight: theme.spacing(2),
     display: "flex",
     color: "black"
-
-
   },
   title: {
     flexGrow: 1,
@@ -27,11 +23,11 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     width: "170px",
     height: "45px",
-    marginTop: "15px",
+    marginTop: "18px",
     marginBottom: "15px",
-
   }
 }));
+
 
 function TopNav () {
   const history = useHistory();
@@ -51,10 +47,14 @@ function TopNav () {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <img src={"/Logo-easykitchen.png"} alt="logo" className={classes.logo} />
-
-          <Typography variant="h6" className={classes.title}>
+        <Toolbar style={{ background: '#EEE' }}>
+          <img
+            src={"/Logo-easykitchen.png"}
+            alt="logo"
+            className={classes.logo} />
+          <Typography
+            variant="h6"
+            className={classes.title}>
           </Typography>
           <div>
             <IconButton

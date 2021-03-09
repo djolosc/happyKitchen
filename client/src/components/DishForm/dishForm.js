@@ -1,7 +1,6 @@
 import './dishForm.css';
 import { useForm } from "react-hook-form";
-import { CssBaseline, Grid } from '@material-ui/core';
-
+import { Grid } from '@material-ui/core';
 
 
 function DishForm ({ addNewDish }) {
@@ -9,23 +8,20 @@ function DishForm ({ addNewDish }) {
   const { register, handleSubmit, errors, reset } = useForm();
 
   const onSubmit = data => {
-    addNewDish(data)
-    reset()
-  }
+    addNewDish(data);
+    reset();
+  };
 
   return (
     <Grid container direction="column" alignItems="center" justify="center">
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
-</style>
-
-
+      </style>
       <form
         className="dish-form"
         onSubmit={handleSubmit(onSubmit)}>
         <h2>Add a new dish</h2>
         <div className="form-control">
-          {/* <label>Title</label> */}
           <input
             className="dishTitle"
             type="text"
@@ -35,7 +31,6 @@ function DishForm ({ addNewDish }) {
           />
         </div>
         <div className="form-control">
-          {/* <label>Description</label> */}
           <input
             className="dishDescription"
             type="text"
@@ -45,7 +40,6 @@ function DishForm ({ addNewDish }) {
           />
         </div>
         <div className="form-control">
-          {/* <label>Price</label> */}
           <input
             className="price"
             type="number"

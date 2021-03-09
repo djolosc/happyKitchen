@@ -11,43 +11,41 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
 
 
   const onSubmit = data => {
-
     const parsedData = {
       title: data.title,
       DishId: selectedDishes.map(id => parseInt(id))
     }
     createNewMenu(parsedData);
     reset();
-    console.log(alert('Menu havs been saved successfully!'))
+    console.log(alert('Menu havs been saved successfully!'));
   }
 
   const handleCheckBox = (event) => {
     event.preventDefault()
     if (event.target.checked) {
       setSelectedDishes([...selectedDishes, event.target.value])
-
     } else {
       setSelectedDishes(selectedDishes.filter(dish => dish !== event.target.value))
     }
   }
 
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="menu-title">
-        <label>Menu name</label>
+        {/* <label>Menu name</label> */}
+        {/* <label></label> */}
         <input
-          className="menuTitle"
+          className="menuTitle_field"
           type="text"
           placeholder="Insert Menu name"
           name="title"
           ref={register({ required: "Title required" })}
         />
       </div>
-      <div>
+      <div className="menu-item">
         {dishes.map((dish) =>
           <div key={dish.id}>
-            <h2 >{dish.title}</h2>
+            <h3 >{dish.title}</h3>
             <p >{dish.description}</p>
             <p >€ {dish.price}</p>
             <input type="checkbox"
@@ -55,15 +53,13 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
               value={dish.id}
               name={dish.title}
               ref={register}
+              className="checkbox"
             />
           </div>
         )}
       </div>
       <input type="submit" className="onSubmit" />
     </form>
-
-
-
   );
 }
 

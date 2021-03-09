@@ -1,7 +1,3 @@
-/* .dishForm {
-  
-} */
-
 .dishForm {
   position: fixed;
   display: flex;
@@ -21,15 +17,14 @@ h2 {
 }
 
   label {
-    font-weight: 550;
-    margin-bottom: 0.5vw;
-    display: flex;
+  font-weight: 550;
+  margin-bottom: 0.5vw;
+  display: flex;
   flex-direction: row;
   justify-content: flex-end;
   text-align: right;
   width: 400px;
   line-height: 26px;
-  /* margin-bottom: 10px; */
   }
 
   input {
@@ -52,7 +47,7 @@ h2 {
   .add-dish-btn {
     border-radius: 7px;
     border: 0.5px solid #eee;
-    background-color: #74a0bf;
+    background-color:  #8dc1c3;
     height: 3rem;
     width: 50%;
     font-weight: 600;
