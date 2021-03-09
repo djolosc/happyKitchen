@@ -57,7 +57,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
 </style>
       <div className="container">
 
-        <h2 className="title-order">YOUR ORDER</h2>
+        <h2 className="title-order">Hi Yanira! What do you want to eat today?</h2>
 
         {menus && menus.length > 0 && (
           <>
