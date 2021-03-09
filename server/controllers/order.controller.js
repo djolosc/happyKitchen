@@ -22,10 +22,13 @@ exports.createOrder = async (req, res) => {
     const newOrder = await Order.create(req.body);
     console.log('req.body -> ', req.body);
     // const newOrder = await Order.create(req.body.DishId);
-    newOrder.addDish(req.body.DishId); //update join table data
-    newOrder.save();
+    const dishes = await newOrder.addDish(req.body.DishId); //update join table data
+    const body = newOrder.toJSON()
+    body.Dishes = dishes;
+    console.log(body)
+    // await newOrder.save();
     res.status(201);
-    res.send(newOrder)
+    res.send(body)
   } catch (e) {
     console.log(e);  //eslint-disable-line no-console
     res.status(500).send(e);

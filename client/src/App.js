@@ -16,6 +16,7 @@ import TopNav from './components/AppTools/TopNav/TopNav';
 // import Content from './components/AppTools/Content';
 import BotNav from './components/AppTools/BotNav/BotNav';
 import ClientBye from './components/ClientBye/ClientBye'
+import MenuSaved from './components/MenuSaved/MenuSaved'
 
 function App () {
   const [dishes, setDishes] = useState([]);
@@ -63,7 +64,10 @@ function App () {
 
   const createNewOrder = (body) => {
     ApiService.createOrder(body)
-      .then((order) => setOrders(prevOrders => [...prevOrders, order]))
+      .then((order) => setOrders(prevOrders => {
+        console.log('orders -> ', [...prevOrders, order]);
+        return [...prevOrders, order]
+      }))
   }
 
 
@@ -129,6 +133,7 @@ function App () {
                 />
               </Route>
               <Route exact path="/" component={Home} />
+              <Route exact path="/menu_saved" component={MenuSaved} />
               <Route exact path="/bye" component={ClientBye} />
             </Switch>
             {/* <Content /> */}

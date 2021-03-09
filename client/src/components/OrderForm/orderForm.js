@@ -1,11 +1,14 @@
 import './orderForm.css';
 import { useForm } from "react-hook-form";
+import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router';
 // import MenuItemById from '../MenuItemById/menuItemById';
 
 
 //TODO: ADD MENU WITH DISHES
 function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }) {
   const { register, handleSubmit, errors, reset } = useForm();
+  const history = useHistory();
 
   const onSubmit = data => {
     const parsedData = {
@@ -20,6 +23,7 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
     console.log('data', data)
     createNewOrder(parsedData);
     reset()
+    history.push('/bye');
   }
 
   // const selectedMenu = () => {
@@ -129,4 +133,4 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
 
 }
 
-export default OrderForm;
+export default withRouter(OrderForm);
