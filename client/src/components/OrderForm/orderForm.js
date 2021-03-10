@@ -2,11 +2,9 @@ import './orderForm.css';
 import { useForm } from "react-hook-form";
 import { withRouter } from 'react-router-dom';
 import { useHistory } from 'react-router';
-// import MenuItemById from '../MenuItemById/menuItemById';
 
 
-//TODO: ADD MENU WITH DISHES
-function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }) {
+function OrderForm ({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
   const { register, handleSubmit, errors, reset } = useForm();
   const history = useHistory();
 
@@ -27,14 +25,6 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
     history.push('/bye');
   }
 
-  // const selectedMenu = () => {
-  //   if (menus && menus.length > 0) {
-  //     return menus.find(menu => parseInt(menu.id) === id);
-  //   }
-  // }
-  // let menu = selectedMenu();
-
-
 
   const handleCheckBox = (event) => {
     event.preventDefault()
@@ -47,24 +37,18 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
     }
   }
 
-
   return (
     <form
       className="order-form"
       onSubmit={handleSubmit(onSubmit)}>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
-</style>
+      </style>
       <div className="container">
-
-        <h2 className="title-order">Hi Yanira! What do you want to eat today?</h2>
-
+        <h2 className="title-order">Hi Friend! What would you like to eat today?</h2>
         {menus && menus.length > 0 && (
           <>
-            {/* <p>{menus[0].title}</p> */}
-
             <div className="elem-dish">
-
               {menus[0]?.Dishes.map((dish) =>
                 <div key={dish.id} className="flexChild">
                   <h3 className="title">{dish.title}</h3>
@@ -80,7 +64,6 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
                 </div>
               )}
             </div>
-
           </>
         )}
         <div className="input-field-container">
@@ -92,7 +75,6 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
             name="clientName"
             ref={register({ required: "Name required" })}
           />
-          {/* <label>Address</label> */}
           <label></label>
           <input
             className="clientAddress"
@@ -101,7 +83,6 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
             name="clientAddress"
             ref={register({ required: "Address required" })}
           />
-          {/* <label>Phone</label> */}
           <label></label>
           <input
             className="clientPhone"
@@ -110,7 +91,6 @@ function OrderForm ({ createNewOrder, menus, dishes, chosenMenu, setChosenMenu }
             name="clientPhone"
             ref={register()}
           />
-          {/* <label>Comments</label> */}
           <label></label>
           <input
             className="comments"

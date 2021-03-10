@@ -1,6 +1,5 @@
 import './ClientBye.css'
 
-//TODO: ADD BACKGROUND IMAGE
 function ClientBye () {
   return (
 

@@ -1,8 +1,20 @@
+  
+  ORDER FOR => SEND MENU CLIENT BY ID
+  
+  // const selectedMenu = () => {
+  //   if (menus && menus.length > 0) {
+  //     return menus.find(menu => parseInt(menu.id) === id);
+  //   }
+  // }
+  // let menu = selectedMenu();
+
+
+
+NAVBAR: REPLACED BY TOPNAV
+
 import './Navbar.css';
 import { Link } from "react-router-dom";
 
-
-//TODO DELETE IT WHEN FINISH
 
 function Navbar () {
   return (

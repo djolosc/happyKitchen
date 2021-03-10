@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize('soloProject', 'postgres', 'admin', {
+const sequelize = new Sequelize('dbEK', 'postgres', 'admin', {
   host: 'localhost',
   dialect: 'postgres',
   logging: console.log,

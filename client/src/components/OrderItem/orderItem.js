@@ -1,8 +1,6 @@
-function OrderItem ({ order, chosenMenu }) {
-  console.log('chosenMenu -> ', chosenMenu);
-  console.log('order -> ', order);
-  console.log('orderD -> ', order.Dishes[0].title);
-  console.log('orderD -> ', order.Dishes.map((dish) => console.log(dish.title)));
+import './orderItem.css'
+
+function OrderItem ({ order }) {
 
   return (
     <div className='orderItem'>
@@ -15,10 +13,7 @@ function OrderItem ({ order, chosenMenu }) {
       {order.Dishes.map((dish) =>
         <div key={dish.id}>
           <p >{dish.title}</p>
-
         </div>
-
-
       )}
     </div>
   )

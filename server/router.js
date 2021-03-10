@@ -9,7 +9,7 @@ const menuCtrl = require('./controllers/menu.controller')
 router.get('/dish', dishCtrl.getAll)
 router.post('/dish', dishCtrl.addDish)
 router.delete('/dish', dishCtrl.deleteDish)
-// router.put('', controller.)
+
 
 
 //MENU
@@ -23,7 +23,7 @@ router.get('/menu/:id', menuCtrl.getOneMenu)
 router.get('/order', orderCtrl.getAll)
 router.post('/order', orderCtrl.createOrder)
 router.delete('/order', orderCtrl.deleteOrder)
-// router.put('/order:id', orderCtrl.modifyOrder)
+
 
 
 module.exports = router;

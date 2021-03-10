@@ -1,6 +1,5 @@
 import './menuItemList.css';
 
-
 function MenuItemList ({ menu }) {
   console.log('menu -> ', menu);
   return (
@@ -12,6 +11,5 @@ function MenuItemList ({ menu }) {
     </div>
   )
 }
-
 
 export default MenuItemList;

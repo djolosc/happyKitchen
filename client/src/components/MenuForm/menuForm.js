@@ -4,9 +4,9 @@ import { useParams } from 'react-router';
 import { withRouter } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
-//TODO fix => navigate to menu item by Id
+//TODO UPTADE => navigate to menu item by Id
 
-function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, menus }) {
+function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }) {
 
   const { register, handleSubmit, reset } = useForm();
   let { id } = useParams();
@@ -19,7 +19,6 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
       DishId: selectedDishes.map(id => parseInt(id))
     }
     createNewMenu(parsedData);
-    // setSelectedDishes([]);
     reset();
     history.push('/menu_saved');
   }
@@ -36,8 +35,6 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes, m
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="menu-title">
-        {/* <label>Menu name</label> */}
-        {/* <label></label> */}
         <input
           className="menuTitle_field"
           type="text"

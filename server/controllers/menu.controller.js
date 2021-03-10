@@ -23,8 +23,6 @@ exports.getOneMenu = async (req, res) => {
       where:
         { id: id }
     });
-    // const menu = await Menu.findByPk(id);
-    console.log('menu -> ', menu);
     res.status(200)
     res.send(menu)
   } catch (e) {
@@ -37,7 +35,6 @@ exports.getOneMenu = async (req, res) => {
 exports.createMenu = async (req, res) => {
   console.log('req.body -> ', req.body.DishId);
   try {
-    // const newMenu = await Menu.create({ title: req.body.title });
     const newMenu = await Menu.create(req.body);
     newMenu.addDish(req.body.DishId);
     res.status(201);
@@ -50,10 +47,7 @@ exports.createMenu = async (req, res) => {
 
 // delete a menu 
 exports.deleteMenu = async (req, res) => {
-  // const id = parseInt(req.body.id); =>where: { id: id }
-  // if (Number.isNaN(id) || !id) return res.status(400).end();
   const title = req.body.title;
-  // if(!title) return res.status(400).send('Menu not found')
   Menu.destroy({
     where: { title: title }
   }).then(() => {
@@ -61,7 +55,7 @@ exports.deleteMenu = async (req, res) => {
   })
     .catch(err => {
       res.status(500).send({
-        message: "Error deletingOrder with id=" + id
+        message: "Error deletingOrder with title" + title
       });
     });
 }

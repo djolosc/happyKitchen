@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 
 
 //TODO: REPLACE ID BY TITLE
-//TODO: CHECK IF CHOSENMENU IS NEEDED?
+//TODO: CHECK IF CHOSENMENU IS NEEDED
 
-function MenuItemById ({ menus, chosenMenu, setChosenMenu }) {
+function MenuItemById ({ menus }) {
 
   let { id } = useParams();
 
@@ -14,8 +14,8 @@ function MenuItemById ({ menus, chosenMenu, setChosenMenu }) {
       return menus.find(menu => parseInt(menu.id) === parseInt(id));
     }
   }
-  let menu = selectedMenu();
 
+  let menu = selectedMenu();
 
   return (
     <div className='menuItemById'>
@@ -30,7 +30,6 @@ function MenuItemById ({ menus, chosenMenu, setChosenMenu }) {
               <p>{dish.price}</p>
             </div>
           )}
-
         </>
       )}
     </div>

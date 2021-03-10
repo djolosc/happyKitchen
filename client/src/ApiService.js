@@ -33,7 +33,7 @@ const createMenu = (body) => {
   return fetchRequest('/menu', httpOptions);
 }
 
-//TODO CHECK IF IT WORKS
+//TODO IMPLEMENT IT
 const deleteMenu = (id) => {
   const httpOptions = {
     method: 'DELETE',
@@ -48,7 +48,6 @@ const getOrders = () => {
   return fetchRequest('/order');
 }
 
-//TODO: MENU CHECK POINT DOESN'T WORK
 const createOrder = (body) => {
   const httpOptions = {
     method: 'POST',
@@ -74,6 +73,5 @@ export default {
   addDish,
   createMenu,
   createOrder,
-  getMenu,
-  // deleteMenu
+  getMenu
 };

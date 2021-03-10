@@ -37,7 +37,7 @@ exports.deleteDish = async (req, res) => {
   })
     .catch(err => {
       res.status(500).send({
-        message: "Error deletingOrder with id=" + id
+        message: "Error deletingOrder with name=" + title
       });
     });
 }

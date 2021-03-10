@@ -1,6 +1,7 @@
 *{
   box-sizing: border-box;
 }
+
 h2 {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 48px;
@@ -15,6 +16,7 @@ h3 {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 38px;
 }
+
 p {
   font-size: 23px;
 }
@@ -25,10 +27,7 @@ p {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  /* background: -webkit-linear-gradient(90deg, #f8ecec, #dae2f8);  Chrome 10-25, Safari 5.1-6 */
-  /* background-image: url("/home/yanira/CodeworksSenior/soloProject/happyKitchen/client/src/img/color-azul.jpg"); */
-
-}
+ }
 
 .checkbox {
 height: 23px;
@@ -38,7 +37,7 @@ width: 25%;
 input .checkbox {
   height: 50px;
   width: 20%;
-  }
+}
 
 @media only screen and (max-width: 600px) {
   .send-button {
@@ -79,16 +78,14 @@ input .checkbox {
   width: 450px;
   height: 350px;
   margin: 5px 60px 20px 60px;
-  /* height: 200px; */
   box-shadow: 2px 3px 2px 3px  #888888;
   padding: 5px 10px;
-  /* display: flex; */
 }
 
 .elem-dish {
   display: flex;
   flex-wrap: wrap;
   margin-top: 15px;
-  margin-bottom: 150px;
+  margin-bottom: 300px;
   justify-content: space-around;
 }

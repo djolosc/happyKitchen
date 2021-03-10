@@ -8,18 +8,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-
-      // marginButton: "10px",
-
-
     },
-
   },
 }));
 
 function GetStarted () {
-  const classes = useStyles();
 
+  const classes = useStyles();
 
   return (
     <div className="container-home">

@@ -1,7 +1,6 @@
 
 import MenuItemList from '../MenuItemList/menuItemList'
 
-
 function MenuList ({ menus }) {
   return (
     <div className='menuList'>

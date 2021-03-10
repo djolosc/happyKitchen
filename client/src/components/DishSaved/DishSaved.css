@@ -4,19 +4,16 @@ height: 70vh;
 
 padding-top: 4%;
 background-repeat:no-repeat;
-/* background-size: 1000px 100px; */
 overflow-y: hidden;
 margin: 200px;
-
  }
 
 
- h2 {
+h2 {
   font-family: 'Noto Sans JP', sans-serif;
-  /* font-size: 0px; */
  }
 
- .text-menu {
+.text-menu {
    position: fixed;
    top: 380px;
    left: 900px;

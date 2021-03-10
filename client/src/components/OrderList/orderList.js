@@ -30,12 +30,12 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
 });
+
 
 function OrderList ({ orders }) {
   const classes = useStyles();

@@ -5,7 +5,6 @@ import ApiService from './ApiService';
 import DishList from './components/DishList/dishList';
 import MenuList from './components/MenuList/menuList';
 import OrderList from './components/OrderList/orderList';
-// import Navbar from './components/Navbar/Navbar';
 import DishForm from './components/DishForm/dishForm';
 import MenuForm from './components/MenuForm/menuForm';
 import OrderForm from './components/OrderForm/orderForm';
@@ -13,7 +12,6 @@ import MenuItemById from './components/MenuItemById/menuItemById';
 import Home from './components/Home/Home';
 import { CssBaseline, Grid } from '@material-ui/core';
 import TopNav from './components/AppTools/TopNav/TopNav';
-// import Content from './components/AppTools/Content';
 import BotNav from './components/AppTools/BotNav/BotNav';
 import ClientBye from './components/ClientBye/ClientBye'
 import MenuSaved from './components/MenuSaved/MenuSaved'
@@ -87,15 +85,12 @@ function App () {
     <Router>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
-</style>
+      </style>
       <div className="App">
         <Grid container direction="column">
-          {/* <Navbar /> */}
           <TopNav />
           <div style={containerStyle} className="content">
-
             <Switch>
-
               <Route exact path="/menu">
                 <MenuList menus={menus} />
               </Route>
@@ -140,7 +135,6 @@ function App () {
               <Route exact path="/menu_saved" component={MenuSaved} />
               <Route exact path="/bye" component={ClientBye} />
             </Switch>
-            {/* <Content /> */}
           </div>
           <BotNav value={tab} onChange={setTab} />
         </Grid>

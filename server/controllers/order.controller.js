@@ -1,4 +1,3 @@
-// const db = require('../models/index');
 const { CLIEngine } = require('eslint');
 const { Order, Dish } = require('../models');
 
@@ -22,14 +21,12 @@ exports.getAll = async (req, res) => {
 exports.createOrder = async (req, res) => {
   try {
     const newOrder = await Order.create(req.body);
-    // const newOrder = await Order.create(req.body.DishId);
     await newOrder.setDishes(req.body.DishId); //update join table data
     const dishes = await newOrder.getDishes();
     console.log('dishes -> ', dishes);
     const body = newOrder.toJSON()
     body.Dishes = dishes.flat().map(dish => dish.toJSON());
     console.log('createOrderBody', body)
-    // await newOrder.save();
     res.status(201);
     res.send(body)
   } catch (e) {
@@ -55,10 +52,7 @@ exports.deleteOrder = async (req, res) => {
 }
 
 //TODO: modify an order (if needed later)
-// exports.modifyOrder = async (req, res) => {
-//   const old = await Order.findOne({ where: { title: title } })
-//   if (old === null) console.log('Not found, sorry!')
-// };
+
 
 
 
