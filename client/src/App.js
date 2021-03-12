@@ -88,7 +88,7 @@ function App () {
       </style>
       <div className="App">
         <Grid container direction="column">
-          <TopNav />
+          <TopNav  />
           <div style={containerStyle} className="content">
             <Switch>
               <Route exact path="/menu">

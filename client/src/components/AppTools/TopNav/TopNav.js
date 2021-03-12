@@ -45,7 +45,7 @@ function TopNav () {
   };
 
   return (
-    <div className={classes.root}>
+    <div data-testid="TopNavtest" className={classes.root}>
       <AppBar position="static">
         <Toolbar style={{ background: '#EEE' }}>
           <img
@@ -67,6 +67,7 @@ function TopNav () {
               <MenuIcon />
             </IconButton>
             <Menu
+              data-testid="Menutest"
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
