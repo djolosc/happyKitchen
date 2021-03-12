@@ -24,6 +24,7 @@ function GetStarted() {
       Let's cook!
       <div className={classes.root}>
         <Button
+          data-testid="getStartedButton"
           variant="contained"
           color="secondary"
           component={Link}

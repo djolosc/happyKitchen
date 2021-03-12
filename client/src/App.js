@@ -119,7 +119,7 @@ function App() {
               <Route exact path="/menu/:id">
                 <MenuItemById menus={menus} />
               </Route>
-              <Route exact path="/get_started" component={GetStarted} />
+              <Route exact path="/get_started" component={GetStarted}></Route>
               <Route exact path="/" component={Home} />
               <Route exact path="/dish_saved" component={DishSaved} />
               <Route exact path="/menu_saved" component={MenuSaved} />
