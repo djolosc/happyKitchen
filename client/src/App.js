@@ -17,7 +17,7 @@ import ClientBye from './components/ClientBye/ClientBye'
 import MenuSaved from './components/MenuSaved/MenuSaved'
 import GetStarted from './components/GetStarted/getStarted'
 import DishSaved from './components/DishSaved/DishSaved'
-//making a change
+
 function App () {
   const [dishes, setDishes] = useState([]);
   const [menus, setMenus] = useState([]);
