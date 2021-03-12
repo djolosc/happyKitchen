@@ -7,28 +7,31 @@ const db = {};
 const sequelize = new Sequelize('dbEK', 'postgres', 'admin', {
   host: 'localhost',
   dialect: 'postgres',
-  logging: console.log,
+  logging: false,
   pool: {
     max: 5,
     min: 0,
     acquire: 30000,
-    idle: 10000
+    idle: 10000,
   },
-  operatorsAliases: false // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
+  operatorsAliases: false, // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
 });
 
-
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+fs.readdirSync(__dirname)
+  .filter((file) => {
+    return (
+      file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
+    );
   })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)
+  .forEach((file) => {
+    const model = require(path.join(__dirname, file))(
+      sequelize,
+      Sequelize.DataTypes
+    );
     db[model.name] = model;
   });
 
-Object.keys(db).forEach(modelName => {
+Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
@@ -40,11 +43,10 @@ db.Sequelize = Sequelize;
 sequelize
   .authenticate()
   .then(() => {
-    console.log('Connection has been established succesfully.')
+    console.log('Connection has been established succesfully.');
   })
   .catch((error) => {
-    console.error('Unable to connect to the database:', error)
+    console.error('Unable to connect to the database:', error);
   });
 
 module.exports = db;
-
