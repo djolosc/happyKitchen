@@ -25,4 +25,32 @@ describe('BotNav', () => {
 
     expect(screen.getByTestId('home')).toBeInTheDocument();
   });
+
+  test('navigates to the /get_startes page', () => {
+    render(
+      <Router path="/" history={history}>
+        <App />
+      </Router>
+    );
+    const bottomNavFirstPage = screen.getByTestId('bottomNavAction2');
+    expect(bottomNavFirstPage).toBeInTheDocument();
+
+    userEvent.click(bottomNavFirstPage);
+
+    expect(screen.getByTestId('getStarted')).toBeInTheDocument();
+  });
+
+  test('navigates to the /create_order page', () => {
+    render(
+      <Router path="/" history={history}>
+        <App />
+      </Router>
+    );
+    const bottomNavFirstPage = screen.getByTestId('bottomNavAction3');
+    expect(bottomNavFirstPage).toBeInTheDocument();
+
+    userEvent.click(bottomNavFirstPage);
+
+    expect(screen.getByTestId('orderForm')).toBeInTheDocument();
+  });
 });

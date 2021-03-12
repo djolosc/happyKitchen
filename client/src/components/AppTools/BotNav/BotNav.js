@@ -22,6 +22,7 @@ function BotNav() {
           to="/"
         />
         <BottomNavigationAction
+          data-testid="bottomNavAction2"
           label="Home"
           value="/"
           icon={<Home />}
@@ -29,6 +30,7 @@ function BotNav() {
           to="/get_started"
         />
         <BottomNavigationAction
+          data-testid="bottomNavAction3"
           label="User"
           value="/create_order"
           icon={<People />}
