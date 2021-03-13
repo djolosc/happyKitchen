@@ -35,7 +35,7 @@ function DishForm({ addNewDish }) {
             placeholder="Title"
             name="title"
             ref={register({ required: 'Title required' })}
-          />
+          />1
         </div>
         <div className="form-control">
           <input

@@ -14,7 +14,7 @@ describe('dishForm', () => {
     history.push('/add_dish');
   });
 
-  test('first test', () => {
+  test('Title rendered to screen', () => {
     render(
       <Router history={history}>
         <Route exact path="/add_dish">
@@ -22,16 +22,23 @@ describe('dishForm', () => {
         </Route>
       </Router>
     );
-
-    // render(<div data-testid="dishForm"></div>);
-
     const h2 = screen.getByText(/Add a new dish/i);
     console.log(h2);
     expect(h2).toBeInTheDocument();
   });
-});
 
-// test('submit test mock',T () => {
-// render()
-// const clicked =
-// })
+  //test inputs are rendered empty
+  test('Input with placeholder Title renders empty', () => {
+    render(
+  <Router history={history}>
+    <Route exact path="/add_dish">
+      <DishForm />
+    </Route>
+  </Router>
+  );
+    // const titleInput = screen.getByPlaceholderText('Title');
+    // expect(titleInput).toBeInTheDocument();
+    // expect(titleInput).toBeEmpty();
+  })
+  //test submit button works 
+});

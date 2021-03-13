@@ -2,11 +2,12 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import App from '../../../App';
 import TopNav from './TopNav';
-import OrderForm from '../../OrderForm/orderForm'
 import { Router } from 'react-router-dom';
-import { getByRole, render, screen, } from '@testing-library/react';
+import { getAllByText, getByTestId, render, screen, } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
-import { getByText, fireEvent, getByLabelText, userEvent } from "@testing-library/react";
+import { getByText, fireEvent, getByLabelText } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom/extend-expect';
 
 describe("TopNav render and nav function", () => {
     const history = createMemoryHistory();
@@ -33,10 +34,10 @@ describe("TopNav render and nav function", () => {
                 <App />
             </Router>
         );
-        const menuButton = screen.getByTestId("Menutest");
-        fireEvent.click(menuButton)
-        const menuopen = screen.getByText(/Add a dish/i)
-        expect(menuopen).toBeInTheDocument()
+      const menuButton = screen.getByTestId("Menutest");
+      fireEvent.click(menuButton)
+      expect(screen.getByTestId("dish")).toBeVisible()
+        
     })
 
     test('on click opens navigation menu displays create a menu', () => {
@@ -47,8 +48,7 @@ describe("TopNav render and nav function", () => {
     );
     const menuButton = screen.getByTestId("Menutest");
     fireEvent.click(menuButton)
-    const menuopen = screen.getByText(/create a menu/i)
-    expect(menuopen).toBeInTheDocument()
+    expect(screen.getByTestId("menu")).toBeVisible()
     })
     
     test('on click opens navigation menu displays see menus', () => {
@@ -59,8 +59,7 @@ describe("TopNav render and nav function", () => {
     );
     const menuButton = screen.getByTestId("Menutest");
     fireEvent.click(menuButton)
-    const menuopen = screen.getByText(/see menus/i)
-    expect(menuopen).toBeInTheDocument()
+    expect(screen.getByTestId("see_menu")).toBeVisible()
     })
     
     test('on click opens navigation menu displays see orders', () => {
@@ -71,8 +70,7 @@ describe("TopNav render and nav function", () => {
     );
     const menuButton = screen.getByTestId("Menutest");
     fireEvent.click(menuButton)
-    const menuopen = screen.getByText(/see orders/i)
-    expect(menuopen).toBeInTheDocument()
+    expect(screen.getByTestId("orders")).toBeVisible()
     })
     
     test('navigates to the /add-a-dish', () => {
