@@ -21,7 +21,7 @@ function GetStarted() {
         @import
         url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
       </style>
-      Let's cook!
+      <div>Let's cook!</div>
       <div className={classes.root}>
         <Button
           data-testid="getStartedButton"

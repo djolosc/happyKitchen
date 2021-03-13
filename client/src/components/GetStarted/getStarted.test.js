@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event';
 import App from '../../App';
 import DishForm from '../DishForm/dishForm';
 describe('getStarted page', () => {
-  test('rendering button', () => {
+  test('button navigates correctly', () => {
     render(
       <Router>
         <App />
@@ -20,5 +20,15 @@ describe('getStarted page', () => {
     expect(getStartedButton).toBeInTheDocument();
     userEvent.click(getStartedButton);
     expect(screen.getByTestId('dishForm')).toBeInTheDocument();
+  });
+
+  test('shows proper text when loaded', () => {
+    render(
+      <Router>
+        <GetStarted />
+      </Router>
+    );
+    const text = screen.getByText("Let's cook!");
+    expect(text).toBeInTheDocument();
   });
 });
