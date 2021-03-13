@@ -58,6 +58,7 @@ function TopNav () {
           </Typography>
           <div>
             <IconButton
+              data-testid="Menutest"
               edge="start"
               className={classes.menuButton}
               color="inherit"
@@ -67,7 +68,6 @@ function TopNav () {
               <MenuIcon />
             </IconButton>
             <Menu
-              data-testid="Menutest"
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -90,7 +90,7 @@ function TopNav () {
           </div>
         </Toolbar>
       </AppBar>
-    </div >
+    </div>
   );
 }
 
