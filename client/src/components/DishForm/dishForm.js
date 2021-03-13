@@ -15,18 +15,16 @@ function DishForm({ addNewDish }) {
   };
 
   return (
-    <Grid
-      data-testid="dishForm"
-      container
-      direction="column"
-      alignItems="center"
-      justify="center"
-    >
+    <Grid container direction="column" alignItems="center" justify="center">
       <style>
         @import
         url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
       </style>
-      <form className="dish-form" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="dish-form"
+        onSubmit={handleSubmit(onSubmit)}
+        data-testid="dishForm"
+      >
         <h2>Add a new dish</h2>
         <div className="form-control">
           <input
