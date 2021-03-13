@@ -41,7 +41,7 @@ function OrderList ({ orders }) {
   const classes = useStyles();
 
   return (
-    <div className="order-list-container">
+    <div data-testid="orderList" className="order-list-container">
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

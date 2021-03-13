@@ -39,6 +39,7 @@ function OrderForm ({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
 
   return (
     <form
+      data-testid="orderForm"
       className="order-form"
       onSubmit={handleSubmit(onSubmit)}>
       <style>

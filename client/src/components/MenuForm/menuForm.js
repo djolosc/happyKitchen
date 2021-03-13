@@ -33,7 +33,7 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes })
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+    <form  data-testid="menuForm" className="form" onSubmit={handleSubmit(onSubmit)}>
       <div className="menu-title">
         <input
           className="menuTitle_field"
