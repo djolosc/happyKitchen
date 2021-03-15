@@ -14,7 +14,7 @@ describe('dishForm', () => {
     history.push('/add_dish');
   });
 
-  test('first test', () => {
+  test('Title rendered to screen', () => {
     render(
       <Router history={history}>
         <Route exact path="/add_dish">
@@ -22,16 +22,8 @@ describe('dishForm', () => {
         </Route>
       </Router>
     );
-
-    // render(<div data-testid="dishForm"></div>);
-
     const h2 = screen.getByText(/Add a new dish/i);
     console.log(h2);
     expect(h2).toBeInTheDocument();
   });
 });
-
-// test('submit test mock',T () => {
-// render()
-// const clicked =
-// })

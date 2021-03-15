@@ -45,7 +45,7 @@ function TopNav () {
   };
 
   return (
-    <div className={classes.root}>
+    <div data-testid="TopNavtest" className={classes.root}>
       <AppBar position="static">
         <Toolbar style={{ background: '#EEE' }}>
           <img
@@ -58,6 +58,7 @@ function TopNav () {
           </Typography>
           <div>
             <IconButton
+              data-testid="Menutest"
               edge="start"
               className={classes.menuButton}
               color="inherit"
@@ -81,15 +82,15 @@ function TopNav () {
               open={open}
               onClose={() => setAnchorEl(null)}
             >
-              <MenuItem onClick={() => handleMenuClick('/add_dish')}>Add a dish</MenuItem>
-              <MenuItem onClick={() => handleMenuClick('/create_menu')}>Create a menu</MenuItem>
-              <MenuItem onClick={() => handleMenuClick('/menu')}>See menus</MenuItem>
-              <MenuItem onClick={() => handleMenuClick('/order')}>See orders</MenuItem>
+              <MenuItem data-testid="dish" onClick={() => handleMenuClick('/add_dish')}>Add a dish</MenuItem>
+              <MenuItem data-testid="menu" onClick={() => handleMenuClick('/create_menu')}>Create a menu</MenuItem>
+              <MenuItem data-testid="see_menu" onClick={() => handleMenuClick('/menu')}>See menus</MenuItem>
+              <MenuItem data-testid="orders" onClick={() => handleMenuClick('/order')}>See orders</MenuItem>
             </Menu>
           </div>
         </Toolbar>
       </AppBar>
-    </div >
+    </div>
   );
 }
 
