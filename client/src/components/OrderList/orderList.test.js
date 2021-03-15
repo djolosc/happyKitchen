@@ -1,11 +1,12 @@
 import OrderList from './orderList';
-import React from 'react';
+import React, { useState } from 'react';
 import '@testing-library/jest-dom';
 
-import { render, screen, wait } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ApiService from '../../ApiService';
+import { ExpansionPanelActions } from '@material-ui/core';
 
 jest.mock('../../ApiService');
 
@@ -38,10 +39,16 @@ const fakeOrders = [
   },
 ];
 
-ApiService.getOrders.mockResolvedValue(fakeOrders);
-
 describe('OrderList', () => {
-  it('loads the orders', async () => {
+  const orders = ApiService.getOrders.mockResolvedValue(fakeOrders);
+
+  it('loads the page when there is no orders', async () => {
+    render(<OrderList orders={[]} />);
+    expect(screen.getByText('There are no orders, yet!!!')).toBeInTheDocument();
+  });
+
+  it('loads the page when there is orders', async () => {
     render(<OrderList orders={fakeOrders} />);
+    expect(screen.getByTestId('orderList')).toBeInTheDocument();
   });
 });
