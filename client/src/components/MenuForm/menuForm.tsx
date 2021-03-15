@@ -6,29 +6,58 @@ import { useHistory } from 'react-router';
 
 //TODO UPTADE => navigate to menu item by Id
 
+type dish = {
+  id: string;
+  title: string;
+  description: string;
+  image: null; 
+  createdAt: 'string';
+  updatedAt: 'string';
+  price: number;
+
+}
+
+
+type dishes = dish[];
+
+type selectedDishes = dish[];
+
+type Imports={
+  dishes: dishes;
+  selectedDishes: selectedDishes;
+  createNewMenu: function
+
+}
+
+type data = {
+  title: string;
+  DishId:selectedDishes;
+}
+const menuForm: React.FC<Imports>
+
 function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }) {
 
   const { register, handleSubmit, reset } = useForm();
-  let { id } = useParams();
+  let { id } : {id: string} = useParams();
   const history = useHistory();
 
 
-  const onSubmit = data => {
+  const onSubmit = (data: data) => {
     const parsedData = {
       title: data.title,
-      DishId: selectedDishes.map(id => parseInt(id))
+      DishId: selectedDishes.map((id: string) => parseInt(id))
     }
     createNewMenu(parsedData);
     reset();
     history.push('/menu_saved');
   }
 
-  const handleCheckBox = (event) => {
+  const handleCheckBox = (event: any) => {
     event.preventDefault()
     if (event.target.checked) {
       setSelectedDishes([...selectedDishes, event.target.value])
     } else {
-      setSelectedDishes(selectedDishes.filter(dish => dish !== event.target.value))
+      setSelectedDishes(selectedDishes.filter((dish: dish) => dish !== event.target.value))
     }
   }
 
@@ -44,7 +73,7 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes })
         />
       </div>
       <div className="menu-item">
-        {dishes?.map((dish) =>
+        {dishes?.map((dish: dish) =>
           <div className="dish" key={dish.id}>
             <h3 >{dish.title}</h3>
             <p >{dish.description}</p>
