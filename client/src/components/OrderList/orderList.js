@@ -1,5 +1,5 @@
 import './orderList.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,14 +11,13 @@ import Paper from '@material-ui/core/Paper';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor: "#8dc1c3",
+    backgroundColor: '#8dc1c3',
     color: theme.palette.common.white,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 24,
   },
   body: {
     fontSize: 20,
-
   },
 }))(TableCell);
 
@@ -36,11 +35,19 @@ const useStyles = makeStyles({
   },
 });
 
+function OrderList({ orders }) {
+  // const [isLoading, setLoading] = useState(true);
+  // const [ordersRendered, setOrderes] = useState([]);
 
-function OrderList ({ orders }) {
+  useEffect(() => {}, [orders]);
+  console.log(orders);
   const classes = useStyles();
 
-  return (
+  return !orders.length ? (
+    <div>
+      <p className="loadingText">There are no orders, yet!!!</p>
+    </div>
+  ) : (
     <div className="order-list-container">
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
@@ -60,11 +67,21 @@ function OrderList ({ orders }) {
                 <StyledTableCell component="th" scope="row">
                   {order.id}
                 </StyledTableCell>
-                <StyledTableCell align="right">{order.clientName}</StyledTableCell>
-                <StyledTableCell align="right">{order.clientAddress}</StyledTableCell>
-                <StyledTableCell align="right">{order.clientPhone}</StyledTableCell>
-                <StyledTableCell align="right">{order.comments}</StyledTableCell>
-                <StyledTableCell align="right">{order.Dishes?.map(dish => `| ${dish?.title} |`)}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {order.clientName}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {order.clientAddress}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {order.clientPhone}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {order.comments}
+                </StyledTableCell>
+                <StyledTableCell align="right">
+                  {order.Dishes?.map((dish) => `| ${dish?.title} |`)}
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
@@ -74,9 +91,4 @@ function OrderList ({ orders }) {
   );
 }
 
-
-
 export default OrderList;
-
-
-

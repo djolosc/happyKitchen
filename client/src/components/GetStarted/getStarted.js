@@ -2,7 +2,7 @@ import './getStarted.css';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,24 +12,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function GetStarted () {
-
+function GetStarted() {
   const classes = useStyles();
 
   return (
-    <div className="container-home">
+    <div data-testid="getStarted" className="container-home">
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+        @import
+        url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
       </style>
-      Let's cook!
+      <div>Let's cook!</div>
       <div className={classes.root}>
-        <Button variant="contained" color="secondary" component={Link} to='/add_dish' style={{ background: 'black', marginTop: "550px" }}>
+        <Button
+          data-testid="getStartedButton"
+          variant="contained"
+          color="secondary"
+          component={Link}
+          to="/add_dish"
+          style={{ background: 'black', marginTop: '550px' }}
+        >
           Get started
-      </Button>
+        </Button>
       </div>
     </div>
-  )
+  );
 }
 
 export default GetStarted;
-
