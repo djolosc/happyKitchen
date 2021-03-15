@@ -26,19 +26,4 @@ describe('dishForm', () => {
     console.log(h2);
     expect(h2).toBeInTheDocument();
   });
-
-  //test inputs are rendered empty
-  test('Input with placeholder Title renders empty', () => {
-    render(
-  <Router history={history}>
-    <Route exact path="/add_dish">
-      <DishForm />
-    </Route>
-  </Router>
-  );
-    // const titleInput = screen.getByPlaceholderText('Title');
-    // expect(titleInput).toBeInTheDocument();
-    // expect(titleInput).toBeEmpty();
-  })
-  //test submit button works 
 });
