@@ -1,18 +1,23 @@
+
 import './dishItem.css'
 
 type Dish= {
-  title: string;
-  description: string;
-  price: number;
+  dish: {
+    title: string;
+    description: string;
+    price: number;
+  }
 
 }
 
-const DishItem: React.FC<Dish> = ({title='new meal', description="nice meal", price=10 }) => {
+
+
+const DishItem: React.FC<Dish> = ({ dish }) => {
   return (
     <div className='dishItem'>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <p>{`${price} €`}</p>
+      <h2>{dish.title}</h2>
+      <p>{dish.description}</p>
+      <p>{`${dish.price} €`}</p>
     </div>
   )
 }
