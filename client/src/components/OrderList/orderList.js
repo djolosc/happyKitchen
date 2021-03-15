@@ -36,17 +36,17 @@ const useStyles = makeStyles({
 });
 
 function OrderList({ orders }) {
-  const [isLoading, setLoading] = useState(true);
-  const [ordersRendering, setOrderes] = useState([]);
-  useEffect(() => {
-    setOrderes(orders);
-    setLoading(false);
-  }, [orders]);
-  console.log(ordersRendering);
+  // const [isLoading, setLoading] = useState(true);
+  // const [ordersRendered, setOrderes] = useState([]);
+
+  useEffect(() => {}, [orders]);
+  console.log(orders);
   const classes = useStyles();
 
-  return isLoading ? (
-    <div>Loading!!!</div>
+  return !orders.length ? (
+    <div>
+      <p className="loadingText">There are no orders, yet!!!</p>
+    </div>
   ) : (
     <div className="order-list-container">
       <TableContainer component={Paper}>
@@ -62,7 +62,7 @@ function OrderList({ orders }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {ordersRendering.map((order) => (
+            {orders.map((order) => (
               <StyledTableRow key={order.id}>
                 <StyledTableCell component="th" scope="row">
                   {order.id}

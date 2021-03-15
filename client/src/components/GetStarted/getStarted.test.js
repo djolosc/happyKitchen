@@ -29,7 +29,7 @@ describe('getStarted page', () => {
         <GetStarted />
       </Router>
     );
-    const text = screen.getByText("Let's cook!");
+    const text = screen.getByText(/Let's cook!/i);
     expect(text).toBeInTheDocument();
   });
 });

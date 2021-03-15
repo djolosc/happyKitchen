@@ -38,10 +38,10 @@ const fakeOrders = [
   },
 ];
 
-ApiService.getOrders.mockResolvedValueOnce(fakeOrders);
+ApiService.getOrders.mockResolvedValue(fakeOrders);
 
 describe('OrderList', () => {
   it('loads the orders', async () => {
-    render(<OrderList />);
+    render(<OrderList orders={fakeOrders} />);
   });
 });
