@@ -1,61 +1,62 @@
 import './orderForm.css';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { withRouter } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
-
-function OrderForm ({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
+function OrderForm({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
   const { register, handleSubmit, errors, reset } = useForm();
   const history = useHistory();
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     const parsedData = {
       clientName: data.clientName,
       clientAddress: data.clientAddress,
       clientPhone: data.clientPhone,
       comments: data.comments,
-      DishId: chosenMenu.map(id => parseInt(id))
-
-    }
-    console.log('PD', parsedData)
-    console.log('data', data)
+      DishId: chosenMenu.map((id) => parseInt(id)),
+    };
+    console.log('PD', parsedData);
+    console.log('data', data);
     createNewOrder(parsedData);
     setChosenMenu([]);
     reset();
     history.push('/bye');
-  }
-
+  };
 
   const handleCheckBox = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     if (event.target.checked) {
-      setChosenMenu([...chosenMenu, event.target.value])
-      console.log('cM', typeof chosenMenu[0])
+      setChosenMenu([...chosenMenu, event.target.value]);
+      console.log('cM', typeof chosenMenu[0]);
     } else {
-      setChosenMenu(chosenMenu.filter(dish => dish !== event.target.value))
-
+      setChosenMenu(chosenMenu.filter((dish) => dish !== event.target.value));
     }
-  }
+  };
 
   return (
     <form
       data-testid="orderForm"
       className="order-form"
-      onSubmit={handleSubmit(onSubmit)}>
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+        @import
+        url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
       </style>
       <div className="container">
-        <h2 className="title-order">Hi Friend! What would you like to eat today?</h2>
+        <h2 className="title-order">
+          Hi Friend! What would you like to eat today?
+        </h2>
         {menus && menus.length > 0 && (
           <>
             <div className="elem-dish">
-              {menus[0]?.Dishes.map((dish) =>
+              {menus[0]?.Dishes.map((dish) => (
                 <div key={dish.id} className="flexChild">
                   <h3 className="title">{dish.title}</h3>
                   <p className="description">{dish.description}</p>
-                  <p >€ {dish.price}</p>
-                  <input type="checkbox"
+                  <p>€ {dish.price}</p>
+                  <input
+                    type="checkbox"
                     onChange={handleCheckBox}
                     value={dish.id}
                     name={dish.title}
@@ -63,7 +64,7 @@ function OrderForm ({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
                     className="checkbox"
                   />
                 </div>
-              )}
+              ))}
             </div>
           </>
         )}
@@ -74,7 +75,7 @@ function OrderForm ({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
             type="text"
             placeholder="Name"
             name="clientName"
-            ref={register({ required: "Name required" })}
+            ref={register({ required: 'Name required' })}
           />
           <label></label>
           <input
@@ -82,7 +83,7 @@ function OrderForm ({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
             type="text"
             placeholder="Address"
             name="clientAddress"
-            ref={register({ required: "Address required" })}
+            ref={register({ required: 'Address required' })}
           />
           <label></label>
           <input
@@ -101,18 +102,14 @@ function OrderForm ({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
             ref={register()}
           />
           <label></label>
-          <input
-            className="send-button"
-            type="submit"
-          />
+          <input className="send-button" type="submit" />
           {errors.title && <p>{errors.title.message}</p>}
           {errors.description && <p>{errors.description.message}</p>}
           {errors.price && <p>{errors.price.message}</p>}
         </div>
       </div>
-    </form >
+    </form>
   );
-
 }
 
 export default withRouter(OrderForm);
