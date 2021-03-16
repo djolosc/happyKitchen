@@ -1,5 +1,5 @@
 import './orderList.css';
-import React, { useEffect, useState } from 'react';
+
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,7 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import {FunctionComponent} from 'react';
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: '#8dc1c3',
@@ -35,28 +35,45 @@ const useStyles = makeStyles({
   },
 });
 
-function OrderList({ orders }) {
+type dish = {
+  id: string;
+  title: string;
+  description: string;
+  image: null; 
+  createdAt: 'string';
+  updatedAt: 'string';
+  price: number;
+}
+
+
+type order = {
+  id: string;
+  clientName: string;
+  clientAddress: string;
+  clientPhone: string;
+  comments: string;
+  Dishes: dish[];
+  
+}
+
+
+type params = {
+  orders: order[]
+}
+
+const OrderList: FunctionComponent<params> = ({orders}) => {
+
   // const [isLoading, setLoading] = useState(true);
   // const [ordersRendered, setOrderes] = useState([]);
 
   const classes = useStyles();
 
   return !orders.length ? (
-<<<<<<< HEAD
-    <div>
-      <p className="loadingText" data-testid="orderList1">
-        There are no orders, yet!!!
-      </p>
-    </div>
-  ) : (
-    <div className="order-list-container" data-testid="orderList">
-=======
     <div data-testid="loadingPlaceHolder">
       <p className="loadingText">There are no orders, yet!!!</p>
     </div>
   ) : (
     <div data-testid="orderList" className="order-list-container">
->>>>>>> 8b4f5d23a89190194179abcb6816996549eb8e34
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
