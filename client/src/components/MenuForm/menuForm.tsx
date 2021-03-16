@@ -1,34 +1,71 @@
 import './menuForm.css';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
-
+import { SetStateAction, FunctionComponent } from 'react';
+import { History } from 'history';
 //TODO UPTADE => navigate to menu item by Id
 
-function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }) {
+type dish = {
+  id: string;
+  title: string;
+  description: string;
+  image: null; 
+  createdAt: 'string';
+  updatedAt: 'string';
+  price: number;
+
+}
+type createNewMenu = (paresedData: parsedData) => void;
+
+type dishes = dish[];
+
+type selectedDishes = dish[];
+
+type Imports = {
+  
+  dishes: dishes;
+  selectedDishes: selectedDishes;
+  createNewMenu: createNewMenu;
+  setSelectedDishes: React.Dispatch<SetStateAction<dishes>>;
+
+}
+
+type data = {
+  title: string;
+  DishId:selectedDishes;
+}
+
+type parsedData = {
+  title: string;
+  DishId: number[];
+}
+
+const MenuForm: FunctionComponent<Imports & RouteComponentProps> = ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }: Imports) => {
+
 
   const { register, handleSubmit, reset } = useForm();
-  let { id } = useParams();
+  let { id } : {id: string} = useParams();
   const history = useHistory();
 
 
-  const onSubmit = data => {
+  const onSubmit = (data: data) => {
     const parsedData = {
       title: data.title,
-      DishId: selectedDishes.map(id => parseInt(id))
+      DishId: selectedDishes.map((dish: dish) => parseInt(dish.id))
     }
     createNewMenu(parsedData);
     reset();
     history.push('/menu_saved');
   }
 
-  const handleCheckBox = (event) => {
+  const handleCheckBox = (event: any) => {
     event.preventDefault()
     if (event.target.checked) {
       setSelectedDishes([...selectedDishes, event.target.value])
     } else {
-      setSelectedDishes(selectedDishes.filter(dish => dish !== event.target.value))
+      setSelectedDishes(selectedDishes.filter((dish: dish) => dish !== event.target.value))
     }
   }
 
@@ -44,7 +81,7 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes })
         />
       </div>
       <div className="menu-item">
-        {dishes?.map((dish) =>
+        {dishes?.map((dish: dish) =>
           <div className="dish" key={dish.id}>
             <h3 >{dish.title}</h3>
             <p >{dish.description}</p>

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/YaniraP/happyKitchen#readme",
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.7",
     "eslint": "^7.21.0"
   }
 }
