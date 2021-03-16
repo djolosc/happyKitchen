@@ -1,19 +1,67 @@
 import './orderForm.css';
 import { useForm } from 'react-hook-form';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
+import { SetStateAction, FunctionComponent } from 'react';
 
-function OrderForm({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
+type data = {
+  clientName: string;
+    clientAddress: string;
+    clientPhone: string;
+    comments: string;
+    DishId: string[];
+}
+
+type parsedData = {
+  clientName: string;
+    clientAddress: string;
+    clientPhone: string;
+    comments: string;
+    DishId: number[];
+}
+type dish = {
+  id: string;
+  title: string;
+  description: string;
+  image: null; 
+  createdAt: 'string';
+  updatedAt: 'string';
+  price: number;
+
+}
+
+type createNewOrder = (parsedData: parsedData) => void;
+
+type menu = {
+  Dishes: dish[];
+  createdAt: string;
+  id: string;
+  title: string;
+  updatedAt: string
+};
+type props = {
+  createNewOrder:createNewOrder;
+  menus: menu[]
+  chosenMenu: menu[];
+  setChosenMenu: React.Dispatch<SetStateAction<menu | []>>;
+}
+
+
+
+
+const OrderForm: FunctionComponent<props & RouteComponentProps> =({createNewOrder, menus, chosenMenu, setChosenMenu}) => {
+
+
   const { register, handleSubmit, errors, reset } = useForm();
   const history = useHistory();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: data) => {
     const parsedData = {
       clientName: data.clientName,
       clientAddress: data.clientAddress,
       clientPhone: data.clientPhone,
       comments: data.comments,
-      DishId: chosenMenu.map((id) => parseInt(id)),
+      DishId: chosenMenu.map((menu) => parseInt(menu.id)),
     };
     console.log('PD', parsedData);
     console.log('data', data);
@@ -23,7 +71,7 @@ function OrderForm({ createNewOrder, menus, chosenMenu, setChosenMenu }) {
     history.push('/bye');
   };
 
-  const handleCheckBox = (event) => {
+  const handleCheckBox = (event: any) => {
     event.preventDefault();
     if (event.target.checked) {
       setChosenMenu([...chosenMenu, event.target.value]);
