@@ -43,17 +43,12 @@ function OrderList({ orders }) {
   console.log(orders);
   const classes = useStyles();
 
-<<<<<<< HEAD
-  return (
-    <div data-testid="orderList" className="order-list-container">
-=======
   return !orders.length ? (
-    <div>
+    <div data-testid="loadingPlaceHolder">
       <p className="loadingText">There are no orders, yet!!!</p>
     </div>
   ) : (
-    <div className="order-list-container">
->>>>>>> 4ff6868881cf8157049860b1e3490634adaa02e0
+    <div data-testid="orderList" className="order-list-container">
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
