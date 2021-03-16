@@ -2,7 +2,7 @@ import DishItem from '../DishItem/dishItem'
 import * as React from 'react';
 
 type DishL = {
-    dishes: Array<[string]>
+    dishes: Array<[String]>
 }
 
 const DishList: React.FC <DishL> = ({ dishes }) => {
