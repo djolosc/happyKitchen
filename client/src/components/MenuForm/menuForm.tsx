@@ -23,15 +23,14 @@ type dishes = dish[];
 
 type selectedDishes = dish[];
 
-type Imports={
+type Imports = {
   
   dishes: dishes;
   selectedDishes: selectedDishes;
   createNewMenu: createNewMenu;
   setSelectedDishes: React.Dispatch<SetStateAction<dishes>>;
- 
-}
 
+}
 
 type data = {
   title: string;

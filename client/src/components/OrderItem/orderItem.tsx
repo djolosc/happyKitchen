@@ -23,6 +23,7 @@ type order = {
   Dishes: dishes;
   
 }
+
 const OrderItem: FunctionComponent<order> = ({id, clientName, clientAddress, clientPhone, comments, Dishes} : order) => {
 
 

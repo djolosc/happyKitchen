@@ -6,10 +6,9 @@ type Dish= {
     title: string;
     description: string;
     price: number;
+    id: string;
 
 }
-
-
 
 const DishItem: FunctionComponent<Dish> = ({ title, description, price } : Dish) => {
   return (
