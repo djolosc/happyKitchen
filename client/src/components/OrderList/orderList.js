@@ -39,7 +39,6 @@ function OrderList({ orders }) {
   // const [isLoading, setLoading] = useState(true);
   // const [ordersRendered, setOrderes] = useState([]);
 
-  useEffect(() => {}, [orders]);
   const classes = useStyles();
 
   return !orders.length ? (

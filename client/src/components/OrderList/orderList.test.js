@@ -2,7 +2,12 @@ import OrderList from './orderList';
 import React, { useState } from 'react';
 import '@testing-library/jest-dom';
 
-import { render, screen, waitFor } from '@testing-library/react';
+import {
+  render,
+  screen,
+  waitFor,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import ApiService from '../../ApiService';
@@ -43,8 +48,16 @@ describe('OrderList', () => {
   const orders = ApiService.getOrders.mockResolvedValue(fakeOrders);
 
   it('loads the page when there is no orders', async () => {
-    render(<OrderList orders={[]} />);
+    render(<OrderList orders={orders} />);
     expect(screen.getByText('There are no orders, yet!!!')).toBeInTheDocument();
+    // await waitForElementToBeRemoved(() => {
+    //   expect(
+    //     screen.getByText('There are no orders, yet!!!')
+    //   ).toBeInTheDocument();
+    // });
+    await waitFor(() => {
+      expect(screen.getByTestId('orderList')).toBeInTheDocument();
+    });
   });
 
   it('loads the page when there is orders', async () => {

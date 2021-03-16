@@ -1,9 +1,10 @@
 import './menuForm.css';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
-
+import { SetStateAction, FunctionComponent } from 'react';
+import { History } from 'history';
 //TODO UPTADE => navigate to menu item by Id
 
 type dish = {
@@ -16,26 +17,34 @@ type dish = {
   price: number;
 
 }
-
+type createNewMenu = (paresedData: parsedData) => void;
 
 type dishes = dish[];
 
 type selectedDishes = dish[];
 
 type Imports={
+  
   dishes: dishes;
   selectedDishes: selectedDishes;
-  createNewMenu: function
-
+  createNewMenu: createNewMenu;
+  setSelectedDishes: React.Dispatch<SetStateAction<dishes>>;
+ 
 }
+
 
 type data = {
   title: string;
   DishId:selectedDishes;
 }
-const menuForm: React.FC<Imports>
 
-function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }) {
+type parsedData = {
+  title: string;
+  DishId: number[];
+}
+
+const MenuForm: FunctionComponent<Imports & RouteComponentProps> = ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }: Imports) => {
+
 
   const { register, handleSubmit, reset } = useForm();
   let { id } : {id: string} = useParams();
@@ -45,7 +54,7 @@ function MenuForm ({ dishes, createNewMenu, selectedDishes, setSelectedDishes })
   const onSubmit = (data: data) => {
     const parsedData = {
       title: data.title,
-      DishId: selectedDishes.map((id: string) => parseInt(id))
+      DishId: selectedDishes.map((dish: dish) => parseInt(dish.id))
     }
     createNewMenu(parsedData);
     reset();
