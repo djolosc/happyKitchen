@@ -42,6 +42,7 @@ function OrderList({ orders }) {
   const classes = useStyles();
 
   return !orders.length ? (
+<<<<<<< HEAD
     <div>
       <p className="loadingText" data-testid="orderList1">
         There are no orders, yet!!!
@@ -49,6 +50,13 @@ function OrderList({ orders }) {
     </div>
   ) : (
     <div className="order-list-container" data-testid="orderList">
+=======
+    <div data-testid="loadingPlaceHolder">
+      <p className="loadingText">There are no orders, yet!!!</p>
+    </div>
+  ) : (
+    <div data-testid="orderList" className="order-list-container">
+>>>>>>> 8b4f5d23a89190194179abcb6816996549eb8e34
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

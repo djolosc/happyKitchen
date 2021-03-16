@@ -2,21 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApiService from './ApiService';
-import DishList from './components/DishList/dishList';
-import MenuList from './components/MenuList/menuList';
-import OrderList from './components/OrderList/orderList';
-import DishForm from './components/DishForm/dishForm';
-import MenuForm from './components/MenuForm/menuForm';
-import OrderForm from './components/OrderForm/orderForm';
-import MenuItemById from './components/MenuItemById/menuItemById';
-import Home from './components/Home/Home';
 import { CssBaseline, Grid } from '@material-ui/core';
-import TopNav from './components/AppTools/TopNav/TopNav';
-import BotNav from './components/AppTools/BotNav/BotNav';
-import ClientBye from './components/ClientBye/ClientBye';
-import MenuSaved from './components/MenuSaved/MenuSaved';
-import GetStarted from './components/GetStarted/getStarted';
-import DishSaved from './components/DishSaved/DishSaved';
+import { DishList, MenuList, OrderList, DishForm, MenuForm, OrderForm, MenuItemById, Home, TopNav, BotNav, ClientBye, MenuSaved, GetStarted, DishSaved } from './components/Index';
 
 function App() {
   const [dishes, setDishes] = useState([]);
