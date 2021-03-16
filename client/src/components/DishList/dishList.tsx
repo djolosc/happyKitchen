@@ -1,11 +1,23 @@
 import DishItem from '../DishItem/dishItem'
 import * as React from 'react';
+import { FunctionComponent } from 'react'
 
-type DishL = {
-    dishes: Array<[String]>
+type dish = {
+  id: string;
+  title: string;
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
 }
 
-const DishList: React.FC <DishL> = ({ dishes }) => {
+type DishProps = {
+    dishes: dish[]
+}
+
+
+const DishList: FunctionComponent<DishProps> = ({dishes}) => {
     return (
         <div className='dishList'>
             {dishes.map(dish => <DishItem dish={dish} />
