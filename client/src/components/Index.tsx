@@ -13,21 +13,20 @@ import MenuSaved from './MenuSaved/MenuSaved';
 import GetStarted from './GetStarted/getStarted';
 import DishSaved from './DishSaved/DishSaved';
 
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export {
-    DishList,
-    MenuList,
-    OrderList, 
-    DishForm,
-    MenuForm, 
-    OrderForm, 
-    MenuItemById, 
-    Home, 
-    TopNav, 
-    BotNav, 
-    ClientBye, 
-    MenuSaved, 
-    GetStarted,
-    DishSaved,
+  DishList,
+  MenuList,
+  OrderList,
+  DishForm,
+  MenuForm,
+  OrderForm,
+  MenuItemById,
+  Home,
+  TopNav,
+  BotNav,
+  ClientBye,
+  MenuSaved,
+  GetStarted,
+  DishSaved,
 };
