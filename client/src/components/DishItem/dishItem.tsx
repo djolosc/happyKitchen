@@ -1,21 +1,26 @@
 import {FunctionComponent} from 'react';
 import './dishItem.css'
 
-type Dish= {
-  
-    title: string;
-    description: string;
-    price: number;
-    id: string;
-
+type dish = {
+  id: string;
+  title: string;
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
 }
 
-const DishItem: FunctionComponent<Dish> = ({ title, description, price } : Dish) => {
+type prop = {
+  dish: dish;
+}
+
+const DishItem: FunctionComponent<prop> = ({ dish }) => {
   return (
     <div className='dishItem'>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      <p>{`${price} €`}</p>
+      <h2>{dish.title}</h2>
+      <p>{dish.description}</p>
+      <p>{`${dish.price} €`}</p>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import MenuItemList from '../MenuItemList/menuItemList'
 import { FunctionComponent } from 'react';
 
-type menu = {
+type dish = {
   id: string;
   title: string;
   description: string;
@@ -9,6 +9,17 @@ type menu = {
   createdAt: string;
   updatedAt: string;
   price: number;
+}
+
+type menu = {
+  id: number;
+  title: string;
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
+  Dishes: dish[]
 }
 type menuListProps = {
   menus: menu[]
