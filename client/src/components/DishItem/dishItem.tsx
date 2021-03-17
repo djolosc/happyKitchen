@@ -1,15 +1,7 @@
 import {FunctionComponent} from 'react';
 import './dishItem.css'
+import type {dish} from '../../Types';
 
-type dish = {
-  id: string;
-  title: string;
-  description: string;
-  image: null;
-  createdAt: string;
-  updatedAt: string;
-  price: number;
-}
 
 type prop = {
   dish: dish;

@@ -1,18 +1,7 @@
 import './menuItemById.css';
 import { useParams } from 'react-router-dom';
 import {FunctionComponent} from 'react';
-type dish = { title: string, description: string, price: number };
-
-type menu = {
-  id: string;
-  title: string;
-  description: string;
-  image: null;
-  createdAt: string;
-  updatedAt: string;
-  price: number;
-  Dishes: dish[];
-}
+import type {menu} from '../../Types';
 
 type props = {
   menus: menu[]};

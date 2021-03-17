@@ -4,12 +4,7 @@ import { Grid } from '@material-ui/core';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import {  FunctionComponent } from 'react';
-
-type data = {
-  title: string;
-  description: string;
-  price: number;
-}
+import type {data} from '../../Types';
 
 type addNewDish = (data: data) => void;
 

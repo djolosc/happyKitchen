@@ -4,60 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApiService from './ApiService';
 import { CssBaseline, Grid } from '@material-ui/core';
 import { DishList, MenuList, OrderList, DishForm, MenuForm, OrderForm, MenuItemById, Home, TopNav, BotNav, ClientBye, MenuSaved, GetStarted, DishSaved } from './components/Index';
-
-
-
-type data = {
-  title: string;
-  description: string;
-  price: number;
-}
-
-
-type dish = {
-  id: string;
-  title: string;
-  description: string;
-  image: null; 
-  createdAt: 'string';
-  updatedAt: 'string';
-  price: number;
-
-}
-
-type menu = {
-  id: string;
-  title: string;
-  description: string;
-  image: null;
-  createdAt: string;
-  updatedAt: string;
-  price: number;
-  Dishes: dish[];
-}
-
-type order = {
-  id: string;
-  clientName: string;
-  clientAddress: string;
-  clientPhone: string;
-  comments: string;
-  Dishes: dish[];
-  
-}
-
-type parsedMenu = {
-  title: string;
-  DishId: number[];
-}
-
-type parsedOrder = {
-  clientName: string;
-    clientAddress: string;
-    clientPhone: string;
-    comments: string;
-    DishId: number[];
-}
+import type {body, dish, menu, order} from './Types';
 
 
 function App() {
@@ -73,7 +20,7 @@ function App() {
     ApiService.getDishes().then((data) => setDishes(data));
   }, []);
 
-  const addNewDish = (body: data) => {
+  const addNewDish = (body: body) => {
     ApiService.addDish(body).then((dish) =>
       setDishes((prevDishes) => [...prevDishes, dish])
     );
@@ -84,7 +31,7 @@ function App() {
     ApiService.getMenus().then((data) => setMenus(data));
   }, []);
 
-  const createNewMenu = (body:parsedMenu) => {
+  const createNewMenu = (body:body) => {
     ApiService.createMenu(body).then((menu) =>
       setMenus((prevMenus) => [...prevMenus, menu])
     );
@@ -101,10 +48,10 @@ function App() {
     ApiService.getOrders().then((data) => setOrders(data));
   }, []);
 
-  const createNewOrder = (body:parsedOrder) => {
+  const createNewOrder = (body:body) => {
     ApiService.createOrder(body).then((order) =>
       setOrders((prevOrders) => {
-        console.log('orders -> ', [...prevOrders, order]);
+       
         return [...prevOrders, order];
       })
     );

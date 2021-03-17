@@ -1,39 +1,22 @@
 import './orderItem.css'
 import {FunctionComponent} from 'react';
+import type {order} from '../../Types';
 
-type dish = {
-  id: string;
-  title: string;
-  description: string;
-  image: null; 
-  createdAt: 'string';
-  updatedAt: 'string';
-  price: number;
+type props={
+  order: order
 }
 
-
-type order = {
-  id: string;
-  clientName: string;
-  clientAddress: string;
-  clientPhone: string;
-  comments: string;
-  Dishes: dish[];
-  
-}
-
-const OrderItem: FunctionComponent<order> = ({id, clientName, clientAddress, clientPhone, comments, Dishes} : order) => {
-
+const OrderItem: FunctionComponent<props> = ({order}) => {
 
   return (
     <div className='orderItem'>
-      <p>Order ID: {id}</p>
-      <p>Name: {clientName}</p>
-      <p>Address:  {clientAddress}</p>
-      <p>Phone: {clientPhone}</p>
-      <p>Comments: {comments}</p>
+      <p>Order ID: {order.id}</p>
+      <p>Name: {order.clientName}</p>
+      <p>Address:  {order.clientAddress}</p>
+      <p>Phone: {order.clientPhone}</p>
+      <p>Comments: {order.comments}</p>
 
-      {Dishes.map((dish) =>
+      {order.Dishes.map((dish) =>
         <div key={dish.id}>
           <p >{dish.title}</p>
         </div>

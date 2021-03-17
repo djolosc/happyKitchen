@@ -1,9 +1,4 @@
 import './orderList.css';
-<<<<<<< HEAD:client/src/components/OrderList/orderList.js
-import React from 'react';
-=======
-
->>>>>>> de0774644d2b3afb362564bb7ab41327ccae5888:client/src/components/OrderList/orderList.tsx
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -13,6 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {FunctionComponent} from 'react';
+import type {order} from '../../Types';
+
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: '#8dc1c3',
@@ -39,36 +37,12 @@ const useStyles = makeStyles({
   },
 });
 
-type dish = {
-  id: string;
-  title: string;
-  description: string;
-  image: null; 
-  createdAt: 'string';
-  updatedAt: 'string';
-  price: number;
-}
-
-
-type order = {
-  id: string;
-  clientName: string;
-  clientAddress: string;
-  clientPhone: string;
-  comments: string;
-  Dishes: dish[];
-  
-}
-
 
 type params = {
   orders: order[]
 }
 
 const OrderList: FunctionComponent<params> = ({orders}) => {
-
-  // const [isLoading, setLoading] = useState(true);
-  // const [ordersRendered, setOrderes] = useState([]);
 
   const classes = useStyles();
 

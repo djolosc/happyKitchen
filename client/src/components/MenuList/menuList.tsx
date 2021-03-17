@@ -1,27 +1,7 @@
 import MenuItemList from '../MenuItemList/menuItemList'
 import { FunctionComponent } from 'react';
+import {menu} from '../../Types';
 
-type dish = {
-  id: string;
-  title: string;
-  description: string;
-  image: null;
-  createdAt: string;
-  updatedAt: string;
-  price: number;
-}
-
-
-type menu = {
-  id: number;
-  title: string;
-  description: string;
-  image: null;
-  createdAt: string;
-  updatedAt: string;
-  price: number;
-  Dishes: dish[]
-}
 type menuListProps = {
   menus: menu[]
 }
@@ -30,7 +10,6 @@ const MenuList: FunctionComponent<menuListProps> = ({menus}) => {
   if (!menus) {
     return (
       <div><p>No menues, yet</p></div>
-      
     )
   } else 
   return (

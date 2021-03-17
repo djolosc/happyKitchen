@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
-import React, {useState, MouseEvent,} from 'react';
+import {useState, MouseEvent,} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -49,7 +49,6 @@ function TopNav () {
     <div data-testid="TopNavtest" className={classes.root}>
       <AppBar position="static">
         <Toolbar style={{ background: '#EEE' }}>
-          
           <img
             src={"/Logo-easykitchen.png"}
             alt="logo"

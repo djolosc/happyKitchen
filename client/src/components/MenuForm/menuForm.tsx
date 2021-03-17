@@ -1,72 +1,38 @@
 import './menuForm.css';
 import { useForm } from "react-hook-form";
-import { useParams } from 'react-router';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { SetStateAction, FunctionComponent } from 'react';
-import { MenuItemTypeMap } from '@material-ui/core';
+import type {dish, menu, parsedData} from '../../Types';
 
 //TODO UPTADE => navigate to menu item by Id
 
-type dish = {
-  id: string;
-  title: string;
-  description: string;
-  image: null; 
-  createdAt: 'string';
-  updatedAt: 'string';
-  price: number;
-
-}
-
-type menu = {
-  id: number;
-  title: string;
-  description: string;
-  image: null;
-  createdAt: string;
-  updatedAt: string;
-  price: number;
-  Dishes: dish[];
-}
 
 type createNewMenu = (paresedData: parsedData) => void;
 
-type dishes = dish[];
-
-type selectedDishes = dish[];
-
 type Imports = {
   
-  dishes: dishes;
-  selectedDishes: selectedDishes;
+  dishes: dish[];
+  selectedDishes: dish[];
   createNewMenu: createNewMenu;
-  setSelectedDishes: React.Dispatch<SetStateAction<dishes>>;
+  setSelectedDishes: React.Dispatch<SetStateAction<dish[]>>;
 
-}
-
-type data = {
-  title: string;
-  DishId:selectedDishes;
-}
-
-type parsedData = {
-  title: string;
-  DishId: number[];
 }
 
 const MenuForm: FunctionComponent<Imports & RouteComponentProps> = ({ dishes, createNewMenu, selectedDishes, setSelectedDishes }: Imports) => {
 
 
   const { register, handleSubmit, reset } = useForm();
-  let { id } : {id: string} = useParams();
   const history = useHistory();
 
 
   const onSubmit = (data: menu) => {
     const parsedData = {
+      id: data.id,
       title: data.title,
-      DishId: selectedDishes.map((dish: dish) => parseInt(dish.id))
+      DishId: selectedDishes.map((dish: dish) => parseInt(dish.id)),
+      description: data.description,
+      price: data.price
     }
     createNewMenu(parsedData);
     reset();

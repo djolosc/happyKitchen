@@ -3,45 +3,10 @@ import { useForm } from 'react-hook-form';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { SetStateAction, FunctionComponent } from 'react';
-
-type data = {
-  clientName: string;
-    clientAddress: string;
-    clientPhone: string;
-    comments: string;
-    DishId: string[];
-}
-
-type parsedData = {
-  clientName: string;
-    clientAddress: string;
-    clientPhone: string;
-    comments: string;
-    DishId: number[];
-}
-type dish = {
-  id: string;
-  title: string;
-  description: string;
-  image: null; 
-  createdAt: 'string';
-  updatedAt: 'string';
-  price: number;
-
-}
+import {data, parsedData, menu} from '../../Types';
 
 type createNewOrder = (parsedData: parsedData) => void;
 
-type menu = {
-  id: string;
-  title: string;
-  description: string;
-  image: null;
-  createdAt: string;
-  updatedAt: string;
-  price: number;
-  Dishes: dish[];
-}
 type props = {
   createNewOrder:createNewOrder;
   menus: menu[]
@@ -56,13 +21,7 @@ const OrderForm: FunctionComponent<props & RouteComponentProps> =({createNewOrde
   const history = useHistory();
 
   const onSubmit = (data: data) => {
-    const parsedData = {
-      clientName: data.clientName,
-      clientAddress: data.clientAddress,
-      clientPhone: data.clientPhone,
-      comments: data.comments,
-      DishId: chosenMenu.map((menu) => parseInt(menu.id)),
-    };
+    const parsedData = {...data,  DishId: chosenMenu.map((menu) => parseInt(menu.id))};
     console.log('PD', parsedData);
     console.log('data', data);
     createNewOrder(parsedData);

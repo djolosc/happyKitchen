@@ -1,19 +1,10 @@
 import './menuItemList.css';
 import {FunctionComponent} from 'react'
-
-type dish = { title: string, description: string, price: number };
-type menu = {
-  Dishes: dish[];
-  createdAt: string;
-  id: string;
-  title: string;
-  updatedAt: string
-};
+import {menu} from '../../Types';
 
 type props = {
   menu:menu;
 }
-
 
 const MenuItemList: FunctionComponent<props> = ({menu}) => {
   console.log('menu -> ', menu);
@@ -21,7 +12,7 @@ const MenuItemList: FunctionComponent<props> = ({menu}) => {
     <div className="menuItemList">
       <h3>{menu.title}</h3>
       <p>
-        {menu.Dishes.map((dish: dish) => (
+        {menu.Dishes.map((dish) => (
           <p>{dish.title}</p>
         ))}
       </p>

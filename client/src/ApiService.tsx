@@ -1,22 +1,5 @@
-import React from 'react';
-import {FunctionComponent } from 'react'
+import type {body} from './Types';
 const BASE_URL = 'http://localhost:3001';
-
-type body = {
-  title: {
-    type: String
-  },
-  description: {
-    type: String
-  },
-  price: {
-    type: Number
-  },
-  id: {
-    type: Number
-  }
-}
-
 
 //DISHES
 const getDishes = () => {

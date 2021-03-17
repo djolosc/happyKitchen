@@ -1,16 +1,7 @@
 import DishItem from '../DishItem/dishItem'
-import * as React from 'react';
 import { FunctionComponent } from 'react'
+import type {dish} from '../../Types';
 
-type dish = {
-  id: string;
-  title: string;
-  description: string;
-  image: null;
-  createdAt: string;
-  updatedAt: string;
-  price: number;
-}
 
 type DishProps = {
     dishes: dish[]

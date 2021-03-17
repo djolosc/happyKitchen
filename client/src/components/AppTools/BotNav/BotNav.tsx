@@ -1,7 +1,7 @@
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import { Home, People } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
-import {useState, ChangeEvent, MouseEvent} from 'react';
+import {useState, ChangeEvent} from 'react';
 import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 
 function BotNav() {
