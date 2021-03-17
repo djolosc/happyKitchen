@@ -1,17 +1,21 @@
 import './menuItemList.css';
+import {FunctionComponent} from 'react'
+
 type dish = { title: string, description: string, price: number };
 type Menu = {
-  menu: {
   Dishes: dish[];
   createdAt: string;
   id: number;
   title: string;
-  updatedAt: string}
+  updatedAt: string
 };
 
+type props = {
+  menu:Menu;
+}
 
 
-const MenuItemList: React.FC<Menu> = ({menu}) => {
+const MenuItemList: FunctionComponent<props> = ({menu}) => {
   console.log('menu -> ', menu);
   return (
     <div className="menuItemList">

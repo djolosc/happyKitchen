@@ -43,11 +43,8 @@ type props = {
   createNewOrder:createNewOrder;
   menus: menu[]
   chosenMenu: menu[];
-  setChosenMenu: React.Dispatch<SetStateAction<menu | []>>;
+  setChosenMenu: React.Dispatch<SetStateAction<menu | [] | any>>;
 }
-
-
-
 
 const OrderForm: FunctionComponent<props & RouteComponentProps> =({createNewOrder, menus, chosenMenu, setChosenMenu}) => {
 
@@ -72,6 +69,7 @@ const OrderForm: FunctionComponent<props & RouteComponentProps> =({createNewOrde
   };
 
   const handleCheckBox = (event: any) => {
+    console.log(event);
     event.preventDefault();
     if (event.target.checked) {
       setChosenMenu([...chosenMenu, event.target.value]);

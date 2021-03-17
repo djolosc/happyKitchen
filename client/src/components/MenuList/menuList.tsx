@@ -26,6 +26,12 @@ type menuListProps = {
 }
 
 const MenuList: FunctionComponent<menuListProps> = ({menus}) => {
+  if (!menus) {
+    return (
+      <div><p>No menues, yet</p></div>
+      
+    )
+  } else 
   return (
       <div data-testid="menuList" className='menuList'>
           {menus.map((menu) => {

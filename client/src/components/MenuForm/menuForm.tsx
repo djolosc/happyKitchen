@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { SetStateAction, FunctionComponent } from 'react';
-import { History } from 'history';
+
 //TODO UPTADE => navigate to menu item by Id
 
 type dish = {
