@@ -1,11 +1,29 @@
+import React from 'react';
+import {FunctionComponent } from 'react'
 const BASE_URL = 'http://localhost:3001';
+
+type body = {
+  title: {
+    type: String
+  },
+  description: {
+    type: String
+  },
+  price: {
+    type: Number
+  },
+  id: {
+    type: Number
+  }
+}
+
 
 //DISHES
 const getDishes = () => {
   return fetchRequest('/dish');
 }
 
-const addDish = (body) => {
+const addDish = (body:body) => {
   const httpOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -24,17 +42,17 @@ const getMenu = () => {
   return fetchRequest('/menu/:id');
 }
 
-const createMenu = (body) => {
+const createMenu = (body:body) => {
   const httpOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   };
-  return fetchRequest('/menu', httpOptions);
+  return fetchRequest('/menu');
 }
 
 //TODO IMPLEMENT IT
-const deleteMenu = (id) => {
+const deleteMenu = (id:body) => {
   const httpOptions = {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
@@ -48,7 +66,7 @@ const getOrders = () => {
   return fetchRequest('/order');
 }
 
-const createOrder = (body) => {
+const createOrder = (body:body) => {
   const httpOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -59,13 +77,14 @@ const createOrder = (body) => {
 }
 
 
-function fetchRequest (path, options) {
+const fetchRequest = (path: string, options?: RequestInit):Promise<any> => {
   return fetch(BASE_URL + path, options)
     .then((res) => res.status >= 400 ? Promise.reject() : res)
     .then((res) => res.json())
     .catch((error) => console.log(`Error fetching ${path}`, error))
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   getDishes,
   getMenus,

@@ -11,15 +11,16 @@ type dish = {
   price: number;
 }
 
+
 type menu = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   image: null;
   createdAt: string;
   updatedAt: string;
   price: number;
-  Dishes: dish[];
+  Dishes: dish[]
 }
 type menuListProps = {
   menus: menu[]

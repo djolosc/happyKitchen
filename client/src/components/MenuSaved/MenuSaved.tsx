@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> de0774644d2b3afb362564bb7ab41327ccae5888
 import './MenuSaved.css'
 import DelayRedirect from '../timeDelay/DelayRedirect'
 

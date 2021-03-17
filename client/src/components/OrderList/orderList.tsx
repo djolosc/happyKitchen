@@ -1,5 +1,9 @@
 import './orderList.css';
+<<<<<<< HEAD:client/src/components/OrderList/orderList.js
+import React from 'react';
+=======
 
+>>>>>>> de0774644d2b3afb362564bb7ab41327ccae5888:client/src/components/OrderList/orderList.tsx
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
