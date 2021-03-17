@@ -3,12 +3,12 @@ import { useForm } from "react-hook-form";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { SetStateAction, FunctionComponent } from 'react';
-import type {dish, menu, parsedData} from '../../Types';
+import type {dish, menu, parsedMenu} from '../../Types';
 
 //TODO UPTADE => navigate to menu item by Id
 
 
-type createNewMenu = (paresedData: parsedData) => void;
+type createNewMenu = (paresedData: parsedMenu) => void;
 
 type Imports = {
   
@@ -27,13 +27,7 @@ const MenuForm: FunctionComponent<Imports & RouteComponentProps> = ({ dishes, cr
 
 
   const onSubmit = (data: menu) => {
-    const parsedData = {
-      id: data.id,
-      title: data.title,
-      DishId: selectedDishes.map((dish: dish) => parseInt(dish.id)),
-      description: data.description,
-      price: data.price
-    }
+    const parsedData = {...data, DishId: selectedDishes.map((dish: dish) => parseInt(dish.id))}
     createNewMenu(parsedData);
     reset();
     history.push('/menu_saved');

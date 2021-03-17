@@ -1,8 +1,28 @@
-type body = {
+type bodyDish = {
   title: string;
   description: string;
   price: number;
   id: string;
+  image: null;
+}
+
+type bodyMenu = {
+  id: string;
+  title: string;
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
+  Dishes: dish[];
+}
+
+type bodyOrder = {
+  id: string;
+  clientName: string;
+  clientAddress: string;
+  clientPhone: string;
+  comments: string;
 }
 
 type dish = {
@@ -10,8 +30,8 @@ type dish = {
   title: string;
   description: string;
   image: null; 
-  createdAt: 'string';
-  updatedAt: 'string';
+  createdAt: string;
+  updatedAt: string;
   price: number;
 
 }
@@ -27,6 +47,16 @@ type menu = {
   Dishes: dish[];
 }
 
+type parsedMenu = {
+  id: string;
+  title: string;
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
+  Dishes: dish[];
+}
 type order = {
   id: string;
   clientName: string;
@@ -42,11 +72,12 @@ type data = {
   title: string;
   description: string;
   clientName: string;
-    clientAddress: string;
-    clientPhone: string;
-    comments: string;
-    DishId: string[];
-    price: number,
+  clientAddress: string;
+  clientPhone: string;
+  comments: string;
+  DishId: string[];
+  price: number,
+  image: null,
 }
 
 type parsedData = {
@@ -62,5 +93,5 @@ type parsedData = {
 }
 
 export type {
-  body, dish,menu, order, data, parsedData
+  bodyDish, bodyMenu, bodyOrder, dish,menu, parsedMenu, order, data, parsedData
 }

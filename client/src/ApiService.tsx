@@ -1,12 +1,13 @@
-import type {body} from './Types';
-const BASE_URL = 'http://localhost:3001';
+import type {bodyDish, bodyMenu, bodyOrder} from './Types';
+
+const BASE_URL = "http://localhost:3001";
 
 //DISHES
 const getDishes = () => {
   return fetchRequest('/dish');
 }
 
-const addDish = (body:body) => {
+const addDish = (body:bodyDish) => {
   const httpOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -25,7 +26,7 @@ const getMenu = () => {
   return fetchRequest('/menu/:id');
 }
 
-const createMenu = (body:body) => {
+const createMenu = (body:bodyMenu) => {
   const httpOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -34,22 +35,22 @@ const createMenu = (body:body) => {
   return fetchRequest('/menu');
 }
 
-//TODO IMPLEMENT IT
-const deleteMenu = (id:body) => {
-  const httpOptions = {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(id)
-  };
-  return fetchRequest(`/menu/:${id}`, httpOptions);
-};
+// //TODO IMPLEMENT IT
+// const deleteMenu = (id:body) => {
+//   const httpOptions = {
+//     method: 'DELETE',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(id)
+//   };
+//   return fetchRequest(`/menu/:${id}`, httpOptions);
+// };
 
 //ORDERS
 const getOrders = () => {
   return fetchRequest('/order');
 }
 
-const createOrder = (body:body) => {
+const createOrder = (body:bodyOrder) => {
   const httpOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

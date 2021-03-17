@@ -43,7 +43,7 @@ type params = {
 }
 
 const OrderList: FunctionComponent<params> = ({orders}) => {
-
+  
   const classes = useStyles();
 
   return !orders.length ? (

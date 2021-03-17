@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApiService from './ApiService';
 import { CssBaseline, Grid } from '@material-ui/core';
 import { DishList, MenuList, OrderList, DishForm, MenuForm, OrderForm, MenuItemById, Home, TopNav, BotNav, ClientBye, MenuSaved, GetStarted, DishSaved } from './components/Index';
-import type {body, dish, menu, order} from './Types';
+import type {bodyDish, bodyMenu, bodyOrder, dish, menu, order} from './Types';
 
 
 function App() {
@@ -13,14 +13,14 @@ function App() {
   const [orders, setOrders] = useState<order[] | []>([]);
   const [selectedDishes, setSelectedDishes] = useState<dish[] | []>([]);
   const [chosenMenu, setChosenMenu] = useState<menu[] | []>([]);
-  // const [tab, setTab] = useState(0);
+
 
   //DISHES
   useEffect(() => {
     ApiService.getDishes().then((data) => setDishes(data));
   }, []);
 
-  const addNewDish = (body: body) => {
+  const addNewDish = (body: bodyDish) => {
     ApiService.addDish(body).then((dish) =>
       setDishes((prevDishes) => [...prevDishes, dish])
     );
@@ -31,7 +31,7 @@ function App() {
     ApiService.getMenus().then((data) => setMenus(data));
   }, []);
 
-  const createNewMenu = (body:body) => {
+  const createNewMenu = (body:bodyMenu) => {
     ApiService.createMenu(body).then((menu) =>
       setMenus((prevMenus) => [...prevMenus, menu])
     );
@@ -48,7 +48,7 @@ function App() {
     ApiService.getOrders().then((data) => setOrders(data));
   }, []);
 
-  const createNewOrder = (body:body) => {
+  const createNewOrder = (body:bodyOrder) => {
     ApiService.createOrder(body).then((order) =>
       setOrders((prevOrders) => {
        
