@@ -49,6 +49,7 @@ function TopNav () {
     <div data-testid="TopNavtest" className={classes.root}>
       <AppBar position="static">
         <Toolbar style={{ background: '#EEE' }}>
+          
           <img
             src={"/Logo-easykitchen.png"}
             alt="logo"
