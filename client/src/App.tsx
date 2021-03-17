@@ -5,7 +5,7 @@ import ApiService from './ApiService';
 import { CssBaseline, Grid } from '@material-ui/core';
 import { DishList, MenuList, OrderList, DishForm, MenuForm, OrderForm, MenuItemById, Home, TopNav, BotNav, ClientBye, MenuSaved, GetStarted, DishSaved } from './components/Index';
 import type {bodyDish, bodyMenu, bodyOrder, dish, menu, order} from './Types';
-require('dotenv').config();
+
 
 function App() {
   const [dishes, setDishes] = useState<dish[] | []>([]);

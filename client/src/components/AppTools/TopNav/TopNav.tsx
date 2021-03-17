@@ -21,10 +21,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   logo: {
-    width: "170px",
-    height: "45px",
-    marginTop: "18px",
-    marginBottom: "15px",
+    width: "120px",
+    height: "25px",
+    
   }
 }));
 
@@ -36,7 +35,6 @@ function TopNav () {
   const open = Boolean(anchorEl);
 
   const handleMenu = (event: MouseEvent) => {
-    console.log(event);
     setAnchorEl(event.currentTarget);
   };
 
@@ -49,10 +47,19 @@ function TopNav () {
     <div data-testid="TopNavtest" className={classes.root}>
       <AppBar position="static">
         <Toolbar style={{ background: '#EEE' }}>
+        <IconButton
+              data-testid="Menutest"
+              edge="start"
+              
+              color="inherit"
+              aria-label="logo"
+              onClick={()=> {history.push('/get_started')}}
+            >
           <img
             src={"/Logo-easykitchen.png"}
             alt="logo"
             className={classes.logo} />
+           </IconButton>
           <Typography
             variant="h6"
             className={classes.title}>
