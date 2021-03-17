@@ -11,8 +11,6 @@ type dish = {
   price: number;
 }
 
-type dishes = dish[];
-
 
 type order = {
   id: string;
@@ -20,7 +18,7 @@ type order = {
   clientAddress: string;
   clientPhone: string;
   comments: string;
-  Dishes: dishes;
+  Dishes: dish[];
   
 }
 

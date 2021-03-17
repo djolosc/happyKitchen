@@ -1,28 +1,35 @@
 import './menuItemById.css';
 import { useParams } from 'react-router-dom';
-
+import {FunctionComponent} from 'react';
 type dish = { title: string, description: string, price: number };
 
-type Menu = {
-  id: string; title: string; createdAt: string; updatedAt: string; Dishes: dish[];
+type menu = {
+  id: string;
+  title: string;
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
+  Dishes: dish[];
 }
 
-type Menus = {
-  menus: Menu[]};
+type props = {
+  menus: menu[]};
 
 
-const MenuItemById: React.FC<Menus> = ({menus}) => {
+const MenuItemById: FunctionComponent<props> = ({menus}) => {
 
   
   let { id } : {id: string} = useParams();
 
   const selectedMenu = () => {
     if (menus && menus.length > 0) {
-      return menus.find((menu: Menu) => parseInt(menu.id) === parseInt(id));
+      return menus.find((menu) => parseInt(menu.id) === parseInt(id));
     } 
   };
 
-  let menu: Menu | undefined = selectedMenu();
+  let menu: menu | undefined = selectedMenu();
   if (!menu) {
     return <div><p>NO MENU!</p></div>
   } else

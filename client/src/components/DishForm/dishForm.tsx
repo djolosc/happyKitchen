@@ -1,14 +1,30 @@
 import './dishForm.css';
 import { useForm } from 'react-hook-form';
 import { Grid } from '@material-ui/core';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
+import {  FunctionComponent } from 'react';
 
-function DishForm({ addNewDish }) {
+type data = {
+  title: string;
+  description: string;
+  price: number;
+}
+
+type addNewDish = (data: data) => void;
+
+type params = {
+  addNewDish: addNewDish;
+}
+
+
+const DishForm: FunctionComponent<params & RouteComponentProps> = ({addNewDish}) => {
+
+
   const { register, handleSubmit, errors, reset } = useForm();
   const history = useHistory();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: data) => {
     addNewDish(data);
     reset();
     history.push('/dish_saved');

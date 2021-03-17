@@ -4,7 +4,8 @@ import { useParams } from 'react-router';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { SetStateAction, FunctionComponent } from 'react';
-import { History } from 'history';
+import { MenuItemTypeMap } from '@material-ui/core';
+
 //TODO UPTADE => navigate to menu item by Id
 
 type dish = {
@@ -17,6 +18,18 @@ type dish = {
   price: number;
 
 }
+
+type menu = {
+  id: number;
+  title: string;
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
+  Dishes: dish[];
+}
+
 type createNewMenu = (paresedData: parsedData) => void;
 
 type dishes = dish[];
@@ -50,7 +63,7 @@ const MenuForm: FunctionComponent<Imports & RouteComponentProps> = ({ dishes, cr
   const history = useHistory();
 
 
-  const onSubmit = (data: data) => {
+  const onSubmit = (data: menu) => {
     const parsedData = {
       title: data.title,
       DishId: selectedDishes.map((dish: dish) => parseInt(dish.id))

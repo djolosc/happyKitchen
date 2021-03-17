@@ -5,20 +5,75 @@ import ApiService from './ApiService';
 import { CssBaseline, Grid } from '@material-ui/core';
 import { DishList, MenuList, OrderList, DishForm, MenuForm, OrderForm, MenuItemById, Home, TopNav, BotNav, ClientBye, MenuSaved, GetStarted, DishSaved } from './components/Index';
 
+
+
+type data = {
+  title: string;
+  description: string;
+  price: number;
+}
+
+
+type dish = {
+  id: string;
+  title: string;
+  description: string;
+  image: null; 
+  createdAt: 'string';
+  updatedAt: 'string';
+  price: number;
+
+}
+
+type menu = {
+  id: string;
+  title: string;
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
+  Dishes: dish[];
+}
+
+type order = {
+  id: string;
+  clientName: string;
+  clientAddress: string;
+  clientPhone: string;
+  comments: string;
+  Dishes: dish[];
+  
+}
+
+type parsedMenu = {
+  title: string;
+  DishId: number[];
+}
+
+type parsedOrder = {
+  clientName: string;
+    clientAddress: string;
+    clientPhone: string;
+    comments: string;
+    DishId: number[];
+}
+
+
 function App() {
-  const [dishes, setDishes] = useState([]);
-  const [menus, setMenus] = useState([]);
-  const [orders, setOrders] = useState([]);
-  const [selectedDishes, setSelectedDishes] = useState([]);
-  const [chosenMenu, setChosenMenu] = useState([]);
-  const [tab, setTab] = useState(0);
+  const [dishes, setDishes] = useState<dish[] | []>([]);
+  const [menus, setMenus] = useState<menu[] | []>([]);
+  const [orders, setOrders] = useState<order[] | []>([]);
+  const [selectedDishes, setSelectedDishes] = useState<dish[] | []>([]);
+  const [chosenMenu, setChosenMenu] = useState<menu[] | []>([]);
+  // const [tab, setTab] = useState(0);
 
   //DISHES
   useEffect(() => {
     ApiService.getDishes().then((data) => setDishes(data));
   }, []);
 
-  const addNewDish = (body) => {
+  const addNewDish = (body: data) => {
     ApiService.addDish(body).then((dish) =>
       setDishes((prevDishes) => [...prevDishes, dish])
     );
@@ -29,24 +84,24 @@ function App() {
     ApiService.getMenus().then((data) => setMenus(data));
   }, []);
 
-  const createNewMenu = (body) => {
+  const createNewMenu = (body:parsedMenu) => {
     ApiService.createMenu(body).then((menu) =>
       setMenus((prevMenus) => [...prevMenus, menu])
     );
   };
 
-  const deleteOneMenu = (id) => {
-    ApiService.deleteMenu(id).then(
-      setMenus(menus.filter((menu) => menu.id !== id))
-    );
-  };
+  // const deleteOneMenu = (id) => {
+  //   ApiService.deleteMenu(id).then(
+  //     setMenus(menus.filter((menu) => menu.id !== id))
+  //   );
+  // };
 
   //ORDERS
   useEffect(() => {
     ApiService.getOrders().then((data) => setOrders(data));
   }, []);
 
-  const createNewOrder = (body) => {
+  const createNewOrder = (body:parsedOrder) => {
     ApiService.createOrder(body).then((order) =>
       setOrders((prevOrders) => {
         console.log('orders -> ', [...prevOrders, order]);
@@ -59,7 +114,7 @@ function App() {
   const containerStyle = {
     height: 'calc(100vh - 112px)',
     overFlow: 'auto',
-    textAlign: 'center',
+    textAlign: 'center' as 'center',
   };
 
   return (
@@ -88,17 +143,16 @@ function App() {
                   createNewMenu={createNewMenu}
                   selectedDishes={selectedDishes}
                   setSelectedDishes={setSelectedDishes}
-                  menus={menus}
+                 
                 />
               </Route>
               <Route exact path="/order">
-                <OrderList orders={orders} chosenMenu={chosenMenu} />
+                <OrderList orders={orders}  />
               </Route>
               <Route exact path="/create_order">
                 <OrderForm
                   createNewOrder={createNewOrder}
                   menus={menus}
-                  dishes={dishes}
                   chosenMenu={chosenMenu}
                   setChosenMenu={setChosenMenu}
                 />
@@ -113,7 +167,7 @@ function App() {
               <Route exact path="/bye" component={ClientBye} />
             </Switch>
           </div>
-          <BotNav value={tab} onChange={setTab} />
+          <BotNav />
         </Grid>
         <CssBaseline />
       </div>
