@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
-import React from 'react';
+import React, {useState, MouseEvent,} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -32,14 +32,15 @@ const useStyles = makeStyles((theme) => ({
 function TopNav () {
   const history = useHistory();
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState<null | EventTarget & Element>(null);
   const open = Boolean(anchorEl);
 
-  const handleMenu = (event) => {
+  const handleMenu = (event: MouseEvent) => {
+    console.log(event);
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClick = (path) => {
+  const handleMenuClick = (path: string) => {
     history.push(path);
     setAnchorEl(null);
   };
