@@ -1,7 +1,30 @@
 .container-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-image: url('../../img/background-easykitchen-1.jpg');
-  height: calc(100vh - 112px);
+  background-position-y: -20vh;
+  background-position-x: 5vh;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 100px;
-  padding-top: 3%;
+  font-size: 80px;
+}
+.text-letsstartContainer {
+  height: 50vh;
+  margin-bottom: 50vh;
+}
+.text-letsstart {
+  font-size: 10vh;
+}
+
+.button-getStartedContainer {
+  display: flex;
+  height: 10vh;
+  margin-bottom: 10vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-getStarted {
+  background: black;
 }
