@@ -1,6 +1,6 @@
 import type {bodyDish, bodyMenu, bodyOrder} from './Types';
 
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 //DISHES
 const getDishes = () => {
