@@ -1,8 +1,7 @@
 import {FunctionComponent} from 'react';
 import './dishItem.css'
 
-type Dish= {
-  
+type dish = {
   id: string;
   title: string;
   description: string;
@@ -12,11 +11,11 @@ type Dish= {
   price: number;
 }
 
-type props = {
-  dish: Dish
+type prop = {
+  dish: dish;
 }
 
-const DishItem: FunctionComponent<props> = ({dish}) => {
+const DishItem: FunctionComponent<prop> = ({ dish }) => {
   return (
     <div className='dishItem'>
       <h2>{dish.title}</h2>
