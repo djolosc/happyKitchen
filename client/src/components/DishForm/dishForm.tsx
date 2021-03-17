@@ -5,11 +5,17 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import {  FunctionComponent } from 'react';
 
-type data = {
+type dish = {
+  id: string;
   title: string;
   description: string;
+  image: null; 
+  createdAt: 'string';
+  updatedAt: 'string';
   price: number;
+
 }
+
 
 type addNewDish = (data: data) => void;
 
@@ -24,7 +30,7 @@ const DishForm: FunctionComponent<params & RouteComponentProps> = ({addNewDish})
   const { register, handleSubmit, errors, reset } = useForm();
   const history = useHistory();
 
-  const onSubmit = (data: data) => {
+  const onSubmit = (data: dish) => {
     addNewDish(data);
     reset();
     history.push('/dish_saved');

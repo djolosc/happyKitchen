@@ -12,7 +12,7 @@ type dish = {
 }
 
 type menu = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   image: null;

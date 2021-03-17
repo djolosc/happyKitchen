@@ -33,12 +33,15 @@ type dish = {
 type createNewOrder = (parsedData: parsedData) => void;
 
 type menu = {
-  Dishes: dish[];
-  createdAt: string;
   id: string;
   title: string;
-  updatedAt: string
-};
+  description: string;
+  image: null;
+  createdAt: string;
+  updatedAt: string;
+  price: number;
+  Dishes: dish[];
+}
 type props = {
   createNewOrder:createNewOrder;
   menus: menu[]
@@ -69,7 +72,7 @@ const OrderForm: FunctionComponent<props & RouteComponentProps> =({createNewOrde
   };
 
   const handleCheckBox = (event: any) => {
-    console.log(event);
+    console.log(event)
     event.preventDefault();
     if (event.target.checked) {
       setChosenMenu([...chosenMenu, event.target.value]);

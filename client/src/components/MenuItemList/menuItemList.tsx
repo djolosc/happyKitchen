@@ -2,16 +2,16 @@ import './menuItemList.css';
 import {FunctionComponent} from 'react'
 
 type dish = { title: string, description: string, price: number };
-type Menu = {
+type menu = {
   Dishes: dish[];
   createdAt: string;
-  id: number;
+  id: string;
   title: string;
   updatedAt: string
 };
 
 type props = {
-  menu:Menu;
+  menu:menu;
 }
 
 
