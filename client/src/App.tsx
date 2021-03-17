@@ -5,6 +5,15 @@ import ApiService from './ApiService';
 import { CssBaseline, Grid } from '@material-ui/core';
 import { DishList, MenuList, OrderList, DishForm, MenuForm, OrderForm, MenuItemById, Home, TopNav, BotNav, ClientBye, MenuSaved, GetStarted, DishSaved } from './components/Index';
 
+
+
+type data = {
+  title: string;
+  description: string;
+  price: number;
+}
+
+
 type dish = {
   id: string;
   title: string;
@@ -57,14 +66,14 @@ function App() {
   const [orders, setOrders] = useState<order[] | []>([]);
   const [selectedDishes, setSelectedDishes] = useState<dish[] | []>([]);
   const [chosenMenu, setChosenMenu] = useState<menu[] | []>([]);
-  const [tab, setTab] = useState(0);
+  // const [tab, setTab] = useState(0);
 
   //DISHES
   useEffect(() => {
     ApiService.getDishes().then((data) => setDishes(data));
   }, []);
 
-  const addNewDish = (body: dish) => {
+  const addNewDish = (body: data) => {
     ApiService.addDish(body).then((dish) =>
       setDishes((prevDishes) => [...prevDishes, dish])
     );
@@ -158,7 +167,7 @@ function App() {
               <Route exact path="/bye" component={ClientBye} />
             </Switch>
           </div>
-          <BotNav value={tab} onChange={setTab} />
+          <BotNav />
         </Grid>
         <CssBaseline />
       </div>

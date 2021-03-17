@@ -7,7 +7,7 @@ import OrderForm from './OrderForm/orderForm';
 import MenuItemById from './MenuItemById/menuItemById';
 import Home from './Home/Home';
 import TopNav from './AppTools/TopNav/TopNav';
-import BotNav from './AppTools/BotNav/BotNav.tsx';
+import BotNav from './AppTools/BotNav/BotNav';
 import ClientBye from './ClientBye/ClientBye';
 import MenuSaved from './MenuSaved/MenuSaved';
 import GetStarted from './GetStarted/getStarted';
